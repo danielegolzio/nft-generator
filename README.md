@@ -1,1 +1,1 @@
-# NFT-generator
+# This is a program which will generate as many unique images as you would like
