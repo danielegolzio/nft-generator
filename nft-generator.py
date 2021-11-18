@@ -1,3 +1,5 @@
+dimensions = (30, 30)
+
 dino = [
     ['bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg'],
     ['bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg'],
@@ -20,3 +22,4 @@ dino = [
     ['bg','bg','bg','bg','bg','bg','bg','bg','ot','bc','bc','bc','bc','bc','bc','ot','bg','bg','bg','bg']
     ['bg','bg','bg','bg','bg','bg','bg','bg','ot','bc','bc','bc','bc','bc','bc','ot','bg','bg','bg','bg']
 ]
+
