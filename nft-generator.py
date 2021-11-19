@@ -1,4 +1,7 @@
+imoprt numpy
+
 dimensions = (30, 30)
+img
 
 dino = [
     ['bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg','bg'],
