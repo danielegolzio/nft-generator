@@ -1,4 +1,4 @@
-PC - picture frame - 0,0,0
+PF - picture frame - 0,0,0
 EW - eye white - 255,255,255
 EC - eye color - 255,0,0
 BC - body color - 200,200,200
