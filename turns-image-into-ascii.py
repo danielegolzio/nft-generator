@@ -1,6 +1,7 @@
 from PIL import Image
 from numpy import asarray
 
+
 def image_data():
     image_name = input('file name: ')
     image = Image.open(image_name)
@@ -15,7 +16,6 @@ def image_data_file(data):
 
     for i in range(30):
         for j in range(30):
-
             R, G, B = data[i][j]
 
             if (R,G,B) == (0, 0, 0):
@@ -35,10 +35,11 @@ def image_data_file(data):
             
             elif (R,G,B) == (0, 0, 255):
                 file.write('BG')
+                
             elif (R,G,B) == (0, 255, 0):
                 file.write('BK')
 
-            if i != 30 and j != 29:
+            if i != 30 and j != 30:
                 file.write(',')
 
         if i != 30 and j != 30:
