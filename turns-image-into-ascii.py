@@ -14,7 +14,7 @@ def image_data_file(data):
     file = open('image_data.txt', 'w')
 
     for i in range(30):
-        file.write('\n')
+
         for j in range(30):
             R, G, B = data[i][j]
             if (R,G,B) == (0, 0, 0):
@@ -36,6 +36,7 @@ def image_data_file(data):
                 file.write('BG,')
             elif (R,G,B) == (0, 255, 0):
                 file.write('BK,')
+        file.write('\n')
 
     file.close()
 
