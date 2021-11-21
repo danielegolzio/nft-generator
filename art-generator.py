@@ -1,10 +1,13 @@
 def file_to_array():
     file = open('image_data.txt', 'r')
     data = file.read()
+    data_array = data.split(',')
+
     for i in data:
-        i.replace('\n', ' ')
-    
-    print([data.split(',')])
+        if i == '\n':
+            data.remove(i)
+
+    print(data_array)
 
     file.close()
     

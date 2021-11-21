@@ -47,6 +47,10 @@ def image_data_file(data):
         
     file.close()
 
+    file = open('image_data.txt', 'r')
+    lines = file.readlines()
+    del lines[29]
+    file.close()
 
 if __name__ == '__main__':
     image_data()
