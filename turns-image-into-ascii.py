@@ -39,18 +39,18 @@ def image_data_file(data):
             elif (R,G,B) == (0, 255, 0):
                 file.write('BK')
 
-            if i != 30 and j != 30:
+            if i != 29 or j != 29:
                 file.write(',')
 
-        if i != 30 and j != 30:
+        if i != 29:
             file.write('\n')
         
     file.close()
 
-    file = open('image_data.txt', 'r')
-    lines = file.readlines()
-    del lines[29]
-    file.close()
+    # file = open('image_data.txt', 'r')
+    # lines = file.readlines()
+    # del lines[29]
+    # file.close()
 
 if __name__ == '__main__':
     image_data()
