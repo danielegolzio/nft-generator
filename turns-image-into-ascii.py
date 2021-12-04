@@ -2,7 +2,7 @@ from PIL import Image
 from numpy import asarray
 
 
-def image_data():
+def image_data(): # opens an image and returns a numpy array with RGB values of each pixel
     image_name = input('file name: ')
     image = Image.open(image_name)
     data = asarray(image)
@@ -11,7 +11,7 @@ def image_data():
     return data
 
 
-def image_data_file(data):
+def image_data_file(data): # turns the numpy array into a txt file
     file = open('image_data.txt', 'w')
 
     for i in range(30):

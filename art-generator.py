@@ -1,8 +1,10 @@
+
 import numpy as np
 import random
 from PIL import Image
 
-def file_to_array():
+
+def file_to_array(): # turns image_data file into a list
     file = open('image_data.txt', 'r')
     data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()]
     file.close()
@@ -12,7 +14,7 @@ def file_to_array():
     return data
 
 
-def rarity(data):
+def rarity(data): # generates rarity for image
     number = random.randint(1, 1000)
     if number >= 1 and number <= 500: # 50% chance of getting this rarity
         rarity = 'common'
