@@ -89,7 +89,24 @@ def common():
 #     pass
 
 def rare():
-    pass
+    eyeWhiteColors = [255,0]
+    eyeWhite = random.choice(eyeWhiteColors)
+    PF = [0,0,0] 
+    PF = np.array(PF)
+    EW = [eyeWhite,eyeWhite,eyeWhite]
+    EW = np.array(EW)
+    EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
+    EC = np.array(EC)
+    BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
+    BC = np.array(BC)
+    OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
+    OT = np.array(OT)
+    BG = [250,249,213]
+    BG = np.array(BG)
+    BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
+    BK = np.array(BK)
+
+    return PF, EW, EC, BC, OT, BG, BK
 
 def covert():
     pass
