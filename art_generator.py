@@ -2,6 +2,8 @@ import numpy as np
 import random
 from PIL import Image
 
+################################################################################################################################################
+# image data to list
 
 def file_to_array(): # turns image_data file into a list
     file = open('image_data.txt', 'r')
@@ -13,17 +15,18 @@ def file_to_array(): # turns image_data file into a list
     return data
 
 ################################################################################################################################################
+# rarity generator
 
 def rarity(data): # generates rarity for image
     number = random.randint(1, 1000)
 
-    if number >= 1 and number <= 500: # 50% chance of getting this rarity
+    if number >= 1 and number <= 750: # 75% chance of getting this rarity
         rarity = 'common'
         common()
     
-    elif number >= 500 and number <= 750: # 25% chance of getting this rarity
-        rarity = 'uncommon'
-        uncommon()
+    # elif number >= 500 and number <= 750: # 25% chance of getting this rarity
+    #     rarity = 'uncommon'
+    #     uncommon()
 
     elif number >= 750 and number <= 850: # 10% chance of getting this rarity
         rarity = 'rare'
@@ -62,6 +65,7 @@ def rarity(data): # generates rarity for image
     return rarity
 
 ################################################################################################################################################
+# color generator
 
 def common():
     PF = [0,0,0] 
@@ -78,10 +82,11 @@ def common():
     BG = np.array(BG)
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
     BK = np.array(BK)
+
     return PF, EW, EC, BC, OT, BG, BK
 
-def uncommon():
-    pass
+# def uncommon():
+#     pass
 
 def rare():
     pass
@@ -105,6 +110,7 @@ def classified_wht():
     pass
 
 ################################################################################################################################################
+# art generator
 
 def art_generator(data, rarity):
     for i in range(50): # main loop for generating art
