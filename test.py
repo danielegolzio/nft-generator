@@ -9,7 +9,6 @@ def file_to_array(): # turns image_data file into a list
     file = open('image_data.txt', 'r')
     data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()]
     file.close()
-    data = np.array(data)
 
     rarity(data)
     return data
@@ -68,19 +67,12 @@ def rarity(data): # generates rarity for image
 
 def common(data, rarity):
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [255,255,255]
-    EW = np.array(EW)
     EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
-    EC = np.array(EC)
     BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BC = np.array(BC)
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
@@ -92,19 +84,12 @@ def rare(data, rarity): # later on this will get complementary colors
     eyeWhiteColors = [255,0]
     eyeWhite = random.choice(eyeWhiteColors)
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [eyeWhite,eyeWhite,eyeWhite]
-    EW = np.array(EW)
     EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
-    EC = np.array(EC)
     BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BC = np.array(BC)
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
@@ -116,19 +101,12 @@ def legendary_r(data, rarity):
     eyeWhiteColors = [255,0]
     eyeWhite = random.choice(eyeWhiteColors)
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [eyeWhite,eyeWhite,eyeWhite]
-    EW = np.array(EW)
     EC = [random.randint(50, 255),0,0]
-    EC = np.array(EC)
     BC = [random.randint(50, 255),0,0]
-    BC = np.array(BC)
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BK = [random.randint(50, 255),0,0]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
@@ -137,19 +115,12 @@ def legendary_b(data, rarity):
     eyeWhiteColors = [255,0]
     eyeWhite = random.choice(eyeWhiteColors)
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [eyeWhite,eyeWhite,eyeWhite]
-    EW = np.array(EW)
     EC = [0,random.randint(50, 255),0]
-    EC = np.array(EC)
     BC = [0,random.randint(50, 255),0]
-    BC = np.array(BC)
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BK = [0,random.randint(50, 255),0]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
@@ -158,63 +129,42 @@ def legendary_g(data, rarity):
     eyeWhiteColors = [255,0]
     eyeWhite = random.choice(eyeWhiteColors)
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [eyeWhite,eyeWhite,eyeWhite]
-    EW = np.array(EW)
     EC = [0,0,random.randint(50, 255)]
-    EC = np.array(EC)
     BC = [0,0,random.randint(50, 255)]
-    BC = np.array(BC)
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BK = [0,0,random.randint(50, 255)]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def classified_blk(data, rarity):
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [255,255,255]
-    EW = np.array(EW)
     ECr = random.randint(0, 150)
     EC = [ECr,ECr,ECr]
-    EC = np.array(EC)
     BCr = random.randint(0, 150)
     BC = [BCr,BCr,BCr]
-    BC = np.array(BC)
     OT = [255,255,255]
-    OT = np.array(OT)
     BG = [250,249,213]
-    BG = np.array(BG)
     BKr = random.randint(0,150)
     BK = [BKr,BKr,BKr]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def classified_wht(data, rarity):
     PF = [0,0,0] 
-    PF = np.array(PF)
     EW = [255,255,255]
-    EW = np.array(EW)
     ECr = random.randint(150, 255)
     EC = [ECr,ECr,ECr]
-    EC = np.array(EC)
     BCr = random.randint(150, 255)
     BC = [BCr,BCr,BCr]
-    BC = np.array(BC)
     OT = [255,255,255]
-    OT = np.array(OT)
     BG = [28,28,28]
-    BG = np.array(BG)
     BKr = random.randint(150,255)
     BK = [BKr,BKr,BKr]
-    BK = np.array(BK)
 
     art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
@@ -223,30 +173,31 @@ def classified_wht(data, rarity):
 # art generator
 
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
-    RGB_data = np.array([])
-    for i in range(0,30):
-        RGB_data = np.append(PF, RGB_data)
-    # for j in range(30):
-    #     for k in range(30):
-    #         if data[j][k] == 'PF':
-    #             np.concatenate(RGB_data, PF)
-    #         elif data[j][k] == 'EW':
-    #             np.concatenate(RGB_data, EW)
-    #         elif data[j][k] == 'EC':
-    #             np.concatenate(RGB_data, EC)
-    #         elif data[j][k] == 'BC':
-    #             np.concatenate(RGB_data, BC)
-    #         elif data[j][k] == 'OT':
-    #             np.concatenate(RGB_data, OT)
-    #         elif data[j][k] == 'BG':
-    #             np.concatenate(RGB_data, BG)
-    #         elif data[j][k] == 'BK':
-    #             np.concatenate(RGB_data, BK)
+    RGB_data = []
+    # for i in range(0,30):
+
+    for j in range(30):
+        for k in range(30):
+            if data[j][k] == 'PF':
+                RGB_data.append(PF)
+            elif data[j][k] == 'EW':
+                RGB_data.append(EW)
+            elif data[j][k] == 'EC':
+                RGB_data.append(EC)
+            elif data[j][k] == 'BC':
+                RGB_data.append(BC)
+            elif data[j][k] == 'OT':
+                RGB_data.append(OT)
+            elif data[j][k] == 'BG':
+                RGB_data.append(BG)
+            elif data[j][k] == 'BK':
+                RGB_data.append(PF)
     
     print(data)
-    print(data.shape)
-
     print(RGB_data)
+    RGB_data = np.array(RGB_data)
+    
+    print(RGB_data.shape)
 
 
 ################################################################################################################################################
