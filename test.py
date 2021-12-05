@@ -223,27 +223,25 @@ def classified_wht(data, rarity):
 # art generator
 
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
-    # for i in range(0): # main loop for generating art
-    # for j in range(30):
-    #     for k in range(30):
-    #         if data[j][k] == 'PF':
-    #             data[j][k].replace('PF',PF)
-    #         elif data[j][k] == 'EW':
-    #             data[j][k].replace('EW',EW)
-    #         elif data[j][k] == 'EC':
-    #             data[j][k].replace('EC',EC)
-    #         elif data[j][k] == 'BC':
-    #             data[j][k].replace('BC',BC)
-    #         elif data[j][k] == 'OT':
-    #             data[j][k].replace('OT',OT)
-    #         elif data[j][k] == 'BG':
-    #             data[j][k].replace('BG',BG)
-    #         elif data[j][k] == 'BK':
-    #             data[j][k].replace('BK',BK)
-    print(np.where(data = 'PF', PF))
-
-
+    for j in range(30):
+        for k in range(30):
+            if data[j][k] == 'PF':
+                data[j][k].replace('PF',PF)
+            elif data[j][k] == 'EW':
+                data[j][k].replace('EW',EW)
+            elif data[j][k] == 'EC':
+                data[j][k].replace('EC',EC)
+            elif data[j][k] == 'BC':
+                data[j][k].replace('BC',BC)
+            elif data[j][k] == 'OT':
+                data[j][k].replace('OT',OT)
+            elif data[j][k] == 'BG':
+                data[j][k].replace('BG',BG)
+            elif data[j][k] == 'BK':
+                data[j][k].replace('BK',BK)
+    
     print(data)
+
 
 ################################################################################################################################################
 
