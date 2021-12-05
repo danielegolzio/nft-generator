@@ -223,24 +223,30 @@ def classified_wht(data, rarity):
 # art generator
 
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
-    for j in range(30):
-        for k in range(30):
-            if data[j][k] == 'PF':
-                data[j][k].replace('PF',PF)
-            elif data[j][k] == 'EW':
-                data[j][k].replace('EW',EW)
-            elif data[j][k] == 'EC':
-                data[j][k].replace('EC',EC)
-            elif data[j][k] == 'BC':
-                data[j][k].replace('BC',BC)
-            elif data[j][k] == 'OT':
-                data[j][k].replace('OT',OT)
-            elif data[j][k] == 'BG':
-                data[j][k].replace('BG',BG)
-            elif data[j][k] == 'BK':
-                data[j][k].replace('BK',BK)
+    RGB_data = np.array([])
+    for i in range(0,30):
+        RGB_data = np.append(PF, RGB_data)
+    # for j in range(30):
+    #     for k in range(30):
+    #         if data[j][k] == 'PF':
+    #             np.concatenate(RGB_data, PF)
+    #         elif data[j][k] == 'EW':
+    #             np.concatenate(RGB_data, EW)
+    #         elif data[j][k] == 'EC':
+    #             np.concatenate(RGB_data, EC)
+    #         elif data[j][k] == 'BC':
+    #             np.concatenate(RGB_data, BC)
+    #         elif data[j][k] == 'OT':
+    #             np.concatenate(RGB_data, OT)
+    #         elif data[j][k] == 'BG':
+    #             np.concatenate(RGB_data, BG)
+    #         elif data[j][k] == 'BK':
+    #             np.concatenate(RGB_data, BK)
     
     print(data)
+    print(data.shape)
+
+    print(RGB_data)
 
 
 ################################################################################################################################################
