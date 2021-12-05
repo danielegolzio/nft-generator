@@ -174,7 +174,7 @@ def classified_wht(data, rarity):
 
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
-    # for i in range(0,30):
+    # for i in range(0,80):
     print(rarity)
     for j in range(30):
         for k in range(30):
@@ -196,12 +196,8 @@ def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
     dimensions = 480, 480
 
     RGB_data = np.array(RGB_data)
-    
     RGB_data = RGB_data.reshape(30,30,3)
     
-    for i in range(30):
-        print(RGB_data[i])
-
     img_data = Image.fromarray(RGB_data, 'RGB')
     img_data = img_data.resize(dimensions, resample=0)
     img_data.save('duck-test.png')
