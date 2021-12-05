@@ -60,7 +60,7 @@ def rarity(data): # generates rarity for image
         main_colors = 'white'
         classified_wht(data, rarity)
 
-    return rarity
+        return rarity
 
 ################################################################################################################################################
 # color generator
@@ -175,7 +175,7 @@ def classified_wht(data, rarity):
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
     # for i in range(0,30):
-
+    print(rarity)
     for j in range(30):
         for k in range(30):
             if data[j][k] == 'PF':
@@ -191,13 +191,21 @@ def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
             elif data[j][k] == 'BG':
                 RGB_data.append(BG)
             elif data[j][k] == 'BK':
-                RGB_data.append(PF)
+                RGB_data.append(BK)
     
-    print(data)
-    print(RGB_data)
+    dimensions = 480, 480
+
     RGB_data = np.array(RGB_data)
     
-    print(RGB_data.shape)
+    RGB_data = RGB_data.reshape(30,30,3)
+    
+    for i in range(30):
+        print(RGB_data[i])
+
+    img_data = Image.fromarray(RGB_data, 'RGB')
+    img_data = img_data.resize(dimensions, resample=0)
+    img_data.save('duck-test.png')
+    img_data.show()
 
 
 ################################################################################################################################################
