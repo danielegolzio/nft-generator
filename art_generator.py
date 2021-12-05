@@ -174,7 +174,7 @@ def classified_wht(data, rarity):
 
 def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
-    # for i in range(0,80):
+    # for i in range(0,30):
     print(rarity)
     for j in range(30):
         for k in range(30):
@@ -205,6 +205,9 @@ def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
 
 
 ################################################################################################################################################
+
+def main_loop(): # each image will be generated in this loop
+    pass
 
 if __name__ == '__main__':
     file_to_array()
