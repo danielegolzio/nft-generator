@@ -4,6 +4,7 @@ from PIL import Image
 
 def main_loop():
 
+    # asks user how many images they want to make
     while True:
         try:
             loop_counter = int(input('How many images would you like to generate?: '))
@@ -11,7 +12,8 @@ def main_loop():
         except ValueError:
             print('wrong input...')
 
-    for i in range(loop_counter):
+    # main loop
+    for i in range(0, loop_counter):
         
 
 
@@ -33,45 +35,52 @@ def main_loop():
             if number >= 1 and number <= 500: # 50% chance of getting this rarity
                 rarity = 'common'
                 common(data, rarity)
+                return rarity
             
             elif number >= 500 and number <= 750: # 25% chance of getting this rarity
                 rarity = 'uncommon'
                 uncommon(data, rarity)
+                return rarity
 
             elif number >= 750 and number <= 850: # 10% chance of getting this rarity
                 rarity = 'rare'
                 rare(data, rarity)
+                return rarity
 
             elif number >= 850 and number <= 900: # 5% chance of getting this rarity
                 rarity = 'covert'
                 covert(data, rarity)
+                return rarity
 
             elif number >= 950 and number <= 960: # 1% chance of getting this rarity
                 rarity = 'legendary'
                 main_colors = 'red'
                 legendary_r(data, rarity)
+                return rarity
 
             elif number >= 960 and number <= 970: # 1% chance of getting this rarity
                 rarity = 'legendary'
                 main_colors = 'green'
                 legendary_g(data, rarity)
+                return rarity
 
             elif number >= 970 and number <= 980: # 1% chance of getting this rarity
                 rarity = 'legendary'
                 main_colors = 'blue'
                 legendary_b(data, rarity)
+                return rarity
 
             elif number == 999: # 0.1% chance of getting this rarity
                 rarity = 'classified'
                 main_colors = 'black'
                 classified_blk(data, rarity)
+                return rarity
 
             elif number == 1000: # 0.1% chance of getting this rarity
                 rarity = 'classified'
                 main_colors = 'white'
                 classified_wht(data, rarity)
-
-            return rarity
+                return rarity
 
 
 
@@ -124,23 +133,9 @@ def main_loop():
             EW = [eyeWhite,eyeWhite,eyeWhite]
             EC = [random.randint(50, 255),0,0]
             BC = [random.randint(50, 255),0,0]
-            OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-            BG = [250,249,213]
+            OT = [random.randint(100, 250),0,0]
+            BG = [random.randint(1, 255),0,0]
             BK = [random.randint(50, 255),0,0]
-
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
-            return PF, EW, EC, BC, OT, BG, BK
-
-        def legendary_b(data, rarity):
-            eyeWhiteColors = [255,0]
-            eyeWhite = random.choice(eyeWhiteColors)
-            PF = [0,0,0] 
-            EW = [eyeWhite,eyeWhite,eyeWhite]
-            EC = [0,random.randint(50, 255),0]
-            BC = [0,random.randint(50, 255),0]
-            OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-            BG = [250,249,213]
-            BK = [0,random.randint(50, 255),0]
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
@@ -150,10 +145,24 @@ def main_loop():
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
             EW = [eyeWhite,eyeWhite,eyeWhite]
+            EC = [0,random.randint(50, 255),0]
+            BC = [0,random.randint(50, 255),0]
+            OT = [0,random.randint(100, 255),0]
+            BG = [0,random.randint(1, 255),0]
+            BK = [0,random.randint(50, 255),0]
+
+            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+            return PF, EW, EC, BC, OT, BG, BK
+
+        def legendary_b(data, rarity):
+            eyeWhiteColors = [255,0]
+            eyeWhite = random.choice(eyeWhiteColors)
+            PF = [0,0,0] 
+            EW = [eyeWhite,eyeWhite,eyeWhite]
             EC = [0,0,random.randint(50, 255)]
             BC = [0,0,random.randint(50, 255)]
-            OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-            BG = [250,249,213]
+            OT = [0,0,random.randint(100, 250)]
+            BG = [0,0,random.randint(1, 255)]
             BK = [0,0,random.randint(50, 255)]
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
@@ -194,8 +203,6 @@ def main_loop():
         # img generator
         def img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):        
             RGB_data = []
-            # for i in range(0,30):
-            print(rarity)
 
             # makes a new array replacing the letters with the generated RGB colors
             for j in range(30):
@@ -215,6 +222,7 @@ def main_loop():
                     elif data[j][k] == 'BK':
                         RGB_data.append(BK)
 
+            print(i+1, rarity)
             # new dimensions for image
             dimensions = 480, 480 
 
@@ -225,7 +233,7 @@ def main_loop():
             # using PIL to turn the RGB values into an image
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
-            img_data.save(f'duck-{i}.png')
+            img_data.save(f'duck-{i+1}.png')
             img_data.show()
         
         file_to_array()
