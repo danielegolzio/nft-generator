@@ -1,8 +1,10 @@
 import numpy as np
 import random
 from PIL import Image
+import os
 
 def main_loop():
+    # array used to display rarities - can be seen in last procedure
     rarity_array = []
     # asks user how many images they want to make
     while True:
@@ -17,10 +19,11 @@ def main_loop():
         
 
 
-        # image data to list
-        def file_to_array(): # turns image_data file into a list
+        # turns image_data file into a list
+        def file_to_array(): 
             file = open('image_data.txt', 'r')
-            data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()]
+            # new array that contains all RGB pixel values
+            data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by royce
             file.close()
 
             rarity(data)
@@ -29,62 +32,71 @@ def main_loop():
 
 
         # rarity generator
-        def rarity(data): # generates rarity for image
+        def rarity(data):
             number = random.randint(1, 1000)
             
-            if number >= 1 and number <= 500: # 50% chance of getting this rarity
+            # 50% chance of getting this rarity
+            if number >= 1 and number <= 500: 
                 rarity = 'common'
                 common(data, rarity)
                 return rarity
             
-            elif number >= 500 and number <= 750: # 25% chance of getting this rarity
+            # 25% chance of getting this rarity
+            elif number >= 500 and number <= 750: 
                 rarity = 'uncommon'
                 uncommon(data, rarity)
                 return rarity
 
-            elif number >= 750 and number <= 850: # 10% chance of getting this rarity
+            # 10% chance of getting this rarity
+            elif number >= 750 and number <= 850: 
                 rarity = 'rare'
                 rare(data, rarity)
                 return rarity
 
-            elif number >= 850 and number <= 900: # 5% chance of getting this rarity
+            # 5% chance of getting this rarity
+            elif number >= 850 and number <= 900: 
                 rarity = 'covert'
                 covert(data, rarity)
                 return rarity
 
-            elif number >= 950 and number <= 960: # 1% chance of getting this rarity
+            # 1% chance of getting this rarity
+            elif number >= 950 and number <= 960: 
                 rarity = 'legendary'
                 main_colors = 'red'
                 legendary_r(data, rarity)
                 return rarity
 
-            elif number >= 960 and number <= 970: # 1% chance of getting this rarity
+            # 1% chance of getting this rarity
+            elif number >= 960 and number <= 970: 
                 rarity = 'legendary'
                 main_colors = 'green'
                 legendary_g(data, rarity)
                 return rarity
 
-            elif number >= 970 and number <= 980: # 1% chance of getting this rarity
+            # 1% chance of getting this rarity
+            elif number >= 970 and number <= 980: 
                 rarity = 'legendary'
                 main_colors = 'blue'
                 legendary_b(data, rarity)
                 return rarity
 
-            elif number == 999: # 0.1% chance of getting this rarity
+            # 0.1% chance of getting this rarity
+            elif number == 999: 
                 rarity = 'classified'
                 main_colors = 'black'
                 classified_blk(data, rarity)
                 return rarity
 
-            elif number == 1000: # 0.1% chance of getting this rarity
+            # 0.1% chance of getting this rarity
+            elif number == 1000: 
                 rarity = 'classified'
                 main_colors = 'white'
                 classified_wht(data, rarity)
                 return rarity
+            
 
 
-
-        # color generator
+        # color generator for common rarity
         def common(data, rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
@@ -96,7 +108,8 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-
+        
+        # color generator for uncommon rarity
         def uncommon(data, rarity):
             PF = [0,0,0] 
             EW = [0,0,0]
@@ -108,7 +121,8 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-
+        
+        # color generator for rare rarity
         def rare(data, rarity): # later on this will get complementary colors...
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
@@ -123,9 +137,11 @@ def main_loop():
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
 
+        # color generator for covert rarity
         def covert(data, rarity): # still need to decide how the colors will look here...
             pass
 
+        # color generator for legendary rarity
         def legendary_r(data, rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
@@ -139,7 +155,8 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-
+        
+        # color generator for legendary rarity
         def legendary_g(data, rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
@@ -153,7 +170,8 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-
+        
+        # color generator for legendary rarity
         def legendary_b(data, rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
@@ -168,6 +186,7 @@ def main_loop():
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
 
+        # color generator for classified rarity
         def classified_blk(data, rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
@@ -182,7 +201,8 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-
+        
+        # color generator for classified rarity
         def classified_wht(data, rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
@@ -222,10 +242,8 @@ def main_loop():
                     elif data[j][k] == 'BK':
                         RGB_data.append(BK)
 
- 
-            # print(i+1, rarity)
             # new dimensions for image
-            dimensions = 480, 480 
+            dimensions = 480,480
 
             # array handling with numpy
             RGB_data = np.array(RGB_data, dtype=np.uint8)
@@ -235,17 +253,18 @@ def main_loop():
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
             img_data.save(f'duck-{i+1}.png')
-            # img_data.show()
 
+            # array used later to display how many of each rarity duck was generated
             rarity_array.append(i+1)
             rarity_array.append(rarity)
-
+            print(rarity_array)
         file_to_array()
 
     rarity_display(rarity_array)
 
 
 
+# procedure used to display how many ducks of each rarity was generated
 def rarity_display(rarity_array):
     common = 0
     uncommon = 0
