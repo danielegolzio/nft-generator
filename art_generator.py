@@ -175,7 +175,7 @@ def main_loop():
             EC = [ECr,ECr,ECr]
             BCr = random.randint(0, 150)
             BC = [BCr,BCr,BCr]
-            OT = [255,255,255]
+            OT = [0,0,0]
             BG = [250,249,213]
             BKr = random.randint(0,150)
             BK = [BKr,BKr,BKr]
@@ -234,7 +234,7 @@ def main_loop():
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
             img_data.save(f'duck-{i+1}.png')
-            img_data.show()
+            # img_data.show()
         
         file_to_array()
 

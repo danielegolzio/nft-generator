@@ -1,7 +1,0 @@
-PF - picture frame - 0,0,0 # always black
-EW - eye white - 255,255,255 # white or black
-EC - eye color - 255,0,0 # never white or black
-BC - body color - 200,200,200 
-OT - outline - 50,50,50 # always dark color
-BG - background - 0,0,255 # always 250,249,213
-BK - beak color - 0,255,0
