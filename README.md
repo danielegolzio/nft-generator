@@ -1,4 +1,3 @@
-# CS-AL
-A level Computer Science
+#NFT-generator
 
-This repo contains all of my work that will be done in my 2 year computer science A level course.
+this program will take an image of a duck and generate different versions of the same image...
