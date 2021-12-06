@@ -19,7 +19,7 @@ def file_to_array(): # turns image_data file into a list
 def rarity(data): # generates rarity for image
     number = random.randint(1, 1000)
 
-    if number >= 1 and number <= 500: # 75% chance of getting this rarity
+    if number >= 1 and number <= 500: # 50% chance of getting this rarity
         rarity = 'common'
         common(data, rarity)
     
