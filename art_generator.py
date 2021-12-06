@@ -19,13 +19,13 @@ def file_to_array(): # turns image_data file into a list
 def rarity(data): # generates rarity for image
     number = random.randint(1, 1000)
 
-    if number >= 1 and number <= 750: # 75% chance of getting this rarity
+    if number >= 1 and number <= 500: # 75% chance of getting this rarity
         rarity = 'common'
         common(data, rarity)
     
-    # elif number >= 500 and number <= 750: # 25% chance of getting this rarity
-    #     rarity = 'uncommon'
-    #     uncommon()
+    elif number >= 500 and number <= 750: # 25% chance of getting this rarity
+        rarity = 'uncommon'
+        uncommon()
 
     elif number >= 750 and number <= 850: # 10% chance of getting this rarity
         rarity = 'rare'
@@ -74,13 +74,22 @@ def common(data, rarity):
     BG = [250,249,213]
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
-# def uncommon():
-#     pass
+def uncommon(data, rarity):
+    PF = [0,0,0] 
+    EW = [0,0,0]
+    EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
+    BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
+    OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
+    BG = [250,249,213]
+    BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
 
-def rare(data, rarity): # later on this will get complementary colors
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    return PF, EW, EC, BC, OT, BG, BK
+
+def rare(data, rarity): # later on this will get complementary colors...
     eyeWhiteColors = [255,0]
     eyeWhite = random.choice(eyeWhiteColors)
     PF = [0,0,0] 
@@ -91,10 +100,10 @@ def rare(data, rarity): # later on this will get complementary colors
     BG = [250,249,213]
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
-def covert(data, rarity):
+def covert(data, rarity): # still need to decide how the colors will look here...
     pass
 
 def legendary_r(data, rarity):
@@ -108,7 +117,7 @@ def legendary_r(data, rarity):
     BG = [250,249,213]
     BK = [random.randint(50, 255),0,0]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def legendary_b(data, rarity):
@@ -122,7 +131,7 @@ def legendary_b(data, rarity):
     BG = [250,249,213]
     BK = [0,random.randint(50, 255),0]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def legendary_g(data, rarity):
@@ -136,7 +145,7 @@ def legendary_g(data, rarity):
     BG = [250,249,213]
     BK = [0,0,random.randint(50, 255)]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def classified_blk(data, rarity):
@@ -151,7 +160,7 @@ def classified_blk(data, rarity):
     BKr = random.randint(0,150)
     BK = [BKr,BKr,BKr]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 def classified_wht(data, rarity):
@@ -166,16 +175,18 @@ def classified_wht(data, rarity):
     BKr = random.randint(150,255)
     BK = [BKr,BKr,BKr]
 
-    art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
+    img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
     return PF, EW, EC, BC, OT, BG, BK
 
 ################################################################################################################################################
-# art generator
+# img generator
 
-def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
+def img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
     # for i in range(0,30):
     print(rarity)
+
+    # makes a new array replacing the letters with the generated RGB colors
     for j in range(30):
         for k in range(30):
             if data[j][k] == 'PF':
@@ -192,12 +203,15 @@ def art_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK):
                 RGB_data.append(BG)
             elif data[j][k] == 'BK':
                 RGB_data.append(BK)
-    
-    dimensions = 480, 480
 
+    # new dimensions for image
+    dimensions = 480, 480 
+
+    # array handling with numpy
     RGB_data = np.array(RGB_data)
     RGB_data = RGB_data.reshape(30,30,3)
     
+    # using PIL to turn the RGB values into an image
     img_data = Image.fromarray(RGB_data, 'RGB')
     img_data = img_data.resize(dimensions, resample=0)
     img_data.save('duck-test.png')
