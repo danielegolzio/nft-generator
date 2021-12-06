@@ -3,7 +3,7 @@ import random
 from PIL import Image
 
 def main_loop():
-
+    rarity_array = []
     # asks user how many images they want to make
     while True:
         try:
@@ -222,7 +222,8 @@ def main_loop():
                     elif data[j][k] == 'BK':
                         RGB_data.append(BK)
 
-            print(i+1, rarity)
+ 
+            # print(i+1, rarity)
             # new dimensions for image
             dimensions = 480, 480 
 
@@ -235,9 +236,39 @@ def main_loop():
             img_data = img_data.resize(dimensions, resample=0)
             img_data.save(f'duck-{i+1}.png')
             # img_data.show()
-        
+
+            rarity_array.append(i+1)
+            rarity_array.append(rarity)
+
         file_to_array()
 
+    rarity_display(rarity_array)
+
+
+
+def rarity_display(rarity_array):
+    common = 0
+    uncommon = 0
+    rare = 0
+    legendary = 0
+    classified = 0
+
+    for i in range(len(rarity_array)):
+        if rarity_array[i] == 'common':
+            common += 1
+        elif rarity_array[i] == 'uncommon':
+            uncommon += 1
+        elif rarity_array[i] == 'rare':
+            rare += 1
+        elif rarity_array[i] == 'legendary':
+            legendary += 1
+        elif rarity_array[i] == 'classified':
+            classified += 1
+
+    print(f'common: {common}\nuncommon: {uncommon}\nrare: {rare}\nlegendary: {legendary}\nclassified: {classified}\n')
+
+
+    
 if __name__ == '__main__':
     main_loop()
     
