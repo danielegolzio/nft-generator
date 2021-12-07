@@ -267,18 +267,10 @@ def main_loop():
 
 
 
-<<<<<<< Updated upstream
 # Creates directory to store generated images
 def makeNFTsDir():
     cwd = os.getcwd()
     path = os.path.join(cwd, "Images")
-=======
-# Make the directory to store the NFT's in
-# If it doesn't already exist, create it
-def makeNFTsDir(): # made by Dante Fernando
-    cwd = os.getcwd()  # Get cwd
-    path = os.path.join(cwd, "Images")  # Path object
->>>>>>> Stashed changes
 
     # Try and make the image/ dir assuming it doesn't exist
     try:
