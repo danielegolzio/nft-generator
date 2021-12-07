@@ -11,7 +11,6 @@ def main_loop():
 
     # array used to display rarities - can be seen in last procedure
     rarity_array = []
-
     # asks user how many images they want to make
     while True:
         try:
@@ -20,11 +19,15 @@ def main_loop():
         except ValueError:
             print('wrong input...')
 
+    
+
     # turns image_data file into a list
     file = open('image_data.txt', 'r')
     # new array that contains all RGB pixel values
     data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
     file.close()
+
+    
 
     # main loop
     for i in range(0, loop_counter):
@@ -34,59 +37,59 @@ def main_loop():
             number = random.randint(1, 1000)
             
             # 50% chance of getting this rarity
-            if number >= 1 and number <= 500:
+            if number >= 1 and number <= 500: 
                 rarity = 'common'
                 common(data, rarity)
                 return rarity
             
             # 25% chance of getting this rarity
-            elif number >= 500 and number <= 750:
+            elif number >= 500 and number <= 750: 
                 rarity = 'uncommon'
                 uncommon(data, rarity)
                 return rarity
 
             # 10% chance of getting this rarity
-            elif number >= 750 and number <= 850:
+            elif number >= 750 and number <= 850: 
                 rarity = 'rare'
                 rare(data, rarity)
                 return rarity
 
             # 5% chance of getting this rarity
-            elif number >= 850 and number <= 900:
+            elif number >= 850 and number <= 900: 
                 rarity = 'covert'
                 covert(data, rarity)
                 return rarity
 
             # 1% chance of getting this rarity
-            elif number >= 950 and number <= 960:
+            elif number >= 950 and number <= 960: 
                 rarity = 'legendary'
                 main_colors = 'red'
                 legendary_r(data, rarity)
                 return rarity
 
             # 1% chance of getting this rarity
-            elif number >= 960 and number <= 970:
+            elif number >= 960 and number <= 970: 
                 rarity = 'legendary'
                 main_colors = 'green'
                 legendary_g(data, rarity)
                 return rarity
 
             # 1% chance of getting this rarity
-            elif number >= 970 and number <= 980:
+            elif number >= 970 and number <= 980: 
                 rarity = 'legendary'
                 main_colors = 'blue'
                 legendary_b(data, rarity)
                 return rarity
 
             # 0.1% chance of getting this rarity
-            elif number == 999:
+            elif number == 999: 
                 rarity = 'classified'
                 main_colors = 'black'
                 classified_blk(data, rarity)
                 return rarity
 
             # 0.1% chance of getting this rarity
-            elif number == 1000:
+            elif number == 1000: 
                 rarity = 'classified'
                 main_colors = 'white'
                 classified_wht(data, rarity)
@@ -96,7 +99,7 @@ def main_loop():
 
         # color generator for common rarity
         def common(data, rarity):
-            PF = [0,0,0]
+            PF = [0,0,0] 
             EW = [255,255,255]
             EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
             BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
@@ -257,9 +260,7 @@ def main_loop():
             rarity_array.append(rarity)
             
         rarity(data)
-
     rarity(data)
-
     rarity_display(rarity_array)
 
 
