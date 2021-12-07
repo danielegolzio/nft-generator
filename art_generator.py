@@ -198,7 +198,7 @@ def main_loop():
             BCr = random.randint(0, 150)
             BC = [BCr,BCr,BCr]
             OT = [0,0,0]
-            BG = [250,249,213]
+            BG = [248, 240, 227]
             BKr = random.randint(0,150)
             BK = [BKr,BKr,BKr]
 
@@ -208,14 +208,14 @@ def main_loop():
         # color generator for classified rarity
         def classified_wht(data, rarity):
             PF = [0,0,0] 
-            EW = [255,255,255]
-            ECr = random.randint(150, 255)
+            EW = [80,80,80]
+            ECr = random.randint(120, 200)
             EC = [ECr,ECr,ECr]
-            BCr = random.randint(150, 255)
+            BCr = random.randint(120, 210)
             BC = [BCr,BCr,BCr]
             OT = [255,255,255]
             BG = [28,28,28]
-            BKr = random.randint(150,255)
+            BKr = random.randint(160,210)
             BK = [BKr,BKr,BKr]
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
@@ -267,16 +267,15 @@ def main_loop():
 
 
 
-# Make the directory to store the NFT's in
-# If it doesn't already exist, create it
+# Creates directory to store generated images
 def makeNFTsDir():
-    cwd = os.getcwd()  # Get cwd
-    path = os.path.join(cwd, "Images")  # Path object
+    cwd = os.getcwd()
+    path = os.path.join(cwd, "Images")
 
-    # Try and make the music/ dir assuming it doesn't exist
+    # Try and make the image/ dir assuming it doesn't exist
     try:
-        os.mkdir(path)  # Make the in the working directory
-    except FileExistsError:  # music/ exists already
+        os.mkdir(path)
+    except FileExistsError:
         pass
 
     return path
@@ -290,6 +289,8 @@ def rarity_display(rarity_array):
     rare = 0
     legendary = 0
     classified = 0
+    
+    print(rarity_array)
 
     for i in range(len(rarity_array)):
         if rarity_array[i] == 'common':
