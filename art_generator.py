@@ -26,7 +26,7 @@ def main_loop():
         def file_to_array(): 
             file = open('image_data.txt', 'r')
             # new array that contains all RGB pixel values
-            data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by royce
+            data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
             file.close()
 
             rarity(data)
@@ -267,10 +267,18 @@ def main_loop():
 
 
 
+<<<<<<< Updated upstream
 # Creates directory to store generated images
 def makeNFTsDir():
     cwd = os.getcwd()
     path = os.path.join(cwd, "Images")
+=======
+# Make the directory to store the NFT's in
+# If it doesn't already exist, create it
+def makeNFTsDir(): # made by Dante Fernando
+    cwd = os.getcwd()  # Get cwd
+    path = os.path.join(cwd, "Images")  # Path object
+>>>>>>> Stashed changes
 
     # Try and make the image/ dir assuming it doesn't exist
     try:
