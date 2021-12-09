@@ -16,7 +16,7 @@ Python Libraries Required:
 
 ## Installation:
 
-1. Install numpy and pillo using pip:
+1. Install numpy and pillow using pip:
 ```
 pip install numpy
 pip install pillow
