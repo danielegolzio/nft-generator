@@ -251,6 +251,7 @@ def main_loop():
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
             img_data.save(f'{PATH}/duck-{i+1}.png')
+            img_data.show()
 
             # array used later to display how many of each rarity duck was generated
             rarity_array.append(i+1)
