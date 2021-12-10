@@ -1,4 +1,4 @@
 art_color_rules.txt
 color_rules.txt
 rarity_rules.txt
-./__pycache__
+__pycache__/
