@@ -288,7 +288,7 @@ def rarity_display(rarity_array):
     legendary = 0
     classified = 0
     
-    print(rarity_array)
+    # print(rarity_array)
 
     for i in range(len(rarity_array)):
         if rarity_array[i] == 'common':
