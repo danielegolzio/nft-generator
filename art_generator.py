@@ -12,7 +12,7 @@ def main_loop():
     # array used to display rarities - can be seen in last procedure
     rarity_array = []
 
-    # asks user how many images they want to make
+    # asks user how many images they want to make - includes error checking
     while True:
         try:
             loop_counter = int(input('How many images would you like to generate?: '))
@@ -121,7 +121,8 @@ def main_loop():
             return PF, EW, EC, BC, OT, BG, BK
         
         # color generator for rare rarity
-        def rare(data, rarity): # later on this will get complementary colors...
+        # this includes complementary colors - white minus color gives opposit color
+        def rare(data, rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
