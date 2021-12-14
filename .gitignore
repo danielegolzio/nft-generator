@@ -1,4 +1,7 @@
-art_color_rules.txt
-color_rules.txt
-rarity_rules.txt
+
 __pycache__/
+testing.py
+turns_image_into_ascii.py
+christmas-duck.png
+template-duck.png
+rules/

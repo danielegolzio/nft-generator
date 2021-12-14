@@ -4,7 +4,7 @@ from numpy import asarray
 
 def image_data(): # opens an image and returns a numpy array with RGB values of each pixel
     # image_name = input('file name: ')
-    image = Image.open('template-duck.png')
+    image = Image.open('christmas-duck.png')
     data = asarray(image)
 
     image_data_file(data)
@@ -12,7 +12,7 @@ def image_data(): # opens an image and returns a numpy array with RGB values of 
 
 
 def image_data_file(data): # turns the numpy array into a txt file
-    file = open('image_data.txt', 'w')
+    file = open('image_data_christmas.txt', 'w')
 
     for i in range(30):
         for j in range(30):
@@ -38,6 +38,9 @@ def image_data_file(data): # turns the numpy array into a txt file
                 
             elif (R,G,B) == (0, 255, 0):
                 file.write('BK')
+
+            elif (R,G,B) == (100, 100, 100):
+                file.write('CH')
 
             if i != 29 or j != 29:
                 file.write(',')
