@@ -1,6 +1,6 @@
 import numpy as np
 import random
-from PIL import Image
+from PIL import Image, ImageOps
 import os
 
 
@@ -251,6 +251,7 @@ def main_loop():
             # using PIL to turn the RGB values into an image
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
+            img_data = ImageOps.mirror(img_data)
             img_data.save(f'{PATH}/duck-{i+1}.png')
             # img_data.show()
 
