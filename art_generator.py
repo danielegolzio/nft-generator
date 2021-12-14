@@ -6,7 +6,7 @@ import os
 
 
 def main_loop():
-    # Make the NFT/ dir 
+    # Make the NFT directory
     PATH = makeNFTsDir()
 
     # array used to display rarities - can be seen in last procedure
@@ -91,7 +91,7 @@ def main_loop():
                 main_colors = 'white'
                 classified_wht(data, rarity)
                 return rarity
-            
+
 
 
         # color generator for common rarity
@@ -106,7 +106,7 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-        
+
         # color generator for uncommon rarity
         def uncommon(data, rarity):
             PF = [0,0,0]
@@ -119,7 +119,7 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK)
             return PF, EW, EC, BC, OT, BG, BK
-        
+
         # color generator for rare rarity
         # this includes complementary colors - white minus color gives opposit color
         def rare(data, rarity):
@@ -288,8 +288,6 @@ def rarity_display(rarity_array):
     rare = 0
     legendary = 0
     classified = 0
-    
-    # print(rarity_array)
 
     for i in range(len(rarity_array)):
         if rarity_array[i] == 'common':
@@ -306,7 +304,6 @@ def rarity_display(rarity_array):
     print(f'common: {common}\nuncommon: {uncommon}\nrare: {rare}\nlegendary: {legendary}\nclassified: {classified}\n')
 
 
-    
+
 if __name__ == '__main__':
     main_loop()
-    
