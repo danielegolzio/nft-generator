@@ -46,10 +46,10 @@ def main_loop():
                 return rarity
                     
             # 25% chance of getting this rarity
-            elif number >= 5000 and number <= 7500:
-                rarity = 'uncommon'
-                uncommon(data, rarity, christmas_data)
-                return rarity
+            # elif number >= 5000 and number <= 7500:
+            #     rarity = 'uncommon'
+            #     uncommon(data, rarity, christmas_data)
+            #     return rarity
 
             # 15% chance of getting this rarity
             elif number >= 7500 and number <= 9000:
@@ -214,7 +214,7 @@ def main_loop():
             BCr = random.randint(0, 150)
             BC = [BCr,BCr,BCr]
             OT = [0,0,0]
-            BG = [248, 240, 227]
+            BG = [250,249,213]
             BKr = random.randint(0,150)
             BK = [BKr,BKr,BKr]
             CH = None
@@ -320,7 +320,7 @@ def main_loop():
             # using PIL to turn the RGB values into an image
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
-            img_data.show()
+            # img_data.show()
 
             # flips image if its upside down rarity
             if rarity == 'upside down':
