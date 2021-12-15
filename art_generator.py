@@ -252,7 +252,6 @@ def main_loop():
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
             return PF, EW, EC, BC, OT, BG, BK, CH
             
-
         def upsidedown(data, rarity, christmas_data):
             PF = [0,0,0] 
             EW = [0,0,0]
@@ -265,7 +264,7 @@ def main_loop():
 
             img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
             return PF, EW, EC, BC, OT, BG, BK, CH
-            
+
 
 
         # img generator
@@ -321,6 +320,7 @@ def main_loop():
             # using PIL to turn the RGB values into an image
             img_data = Image.fromarray(RGB_data, 'RGB')
             img_data = img_data.resize(dimensions, resample=0)
+            img_data.show()
 
             # flips image if its upside down rarity
             if rarity == 'upside down':
