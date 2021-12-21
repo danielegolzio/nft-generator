@@ -36,13 +36,13 @@ def main_loop():
     for i in range(0, loop_counter):
         
         # rarity generator
-        def rarity(data, christmas_data):
+        def rarity():
             number = random.randint(1, 10000)
                     
             # 50% chance of getting this rarity
             if number >= 1 and number <= 5000:
                 rarity = 'common'
-                common(data, rarity, christmas_data)
+                common(rarity)
                 return rarity
                     
             # 25% chance of getting this rarity
@@ -54,67 +54,67 @@ def main_loop():
             # 15% chance of getting this rarity
             elif number >= 7500 and number <= 9000:
                 rarity = 'rare'
-                rare(data, rarity, christmas_data)
+                rare(rarity)
                 return rarity
 
             # 2% chance of getting this rarity
             elif number >= 9000 and number <= 9200:
                 rarity = 'legendary'
                 main_colors = 'red'
-                legendary_r(data, rarity, christmas_data)
+                legendary_r(rarity)
                 return rarity
 
             # 2% chance of getting this rarity
             elif number >= 9200 and number <= 9400:
                 rarity = 'legendary'
                 main_colors = 'green'
-                legendary_g(data, rarity, christmas_data)
+                legendary_g(rarity)
                 return rarity
 
             # 2% chance of getting this rarity
             elif number >= 9400 and number <= 9600:
                 rarity = 'legendary'
                 main_colors = 'blue'
-                legendary_b(data, rarity, christmas_data)
+                legendary_b(rarity)
                 return rarity
 
             # 1% chance of getting this rarity
             elif number >= 9600 and number <= 9700:
                 rarity = 'classified'
                 main_colors = 'black'
-                classified_blk(data, rarity, christmas_data)
+                classified_blk(rarity)
                 return rarity
 
             # 1% chance of getting this rarity
             elif number >= 9700 and number <= 9800:
                 rarity = 'classified'
                 main_colors = 'white'
-                classified_wht(data, rarity, christmas_data)
+                classified_wht(rarity)
                 return rarity
 
             # 0.1% chance of getting this rarity
             elif number >= 9700 and number <= 9710:
-                rarity = 'Holiday'
-                main_colors = 'Christmas'
-                holiday_christmas(data, rarity, christmas_data)
-                return rarity
+               rarity = 'holiday'
+               main_colors = 'christmas'
+               holiday_christmas(rarity)
+               return rarity
 
             # 0.01% chance of getting this rarity
             elif number == 10000:
-                rarity = 'upside down'
-                upsidedown(data, rarity, christmas_data)
-                return rarity
+              rarity = 'upside down'
+              upsidedown(rarity)
+              return rarity
             
             # this is here untill all 10000 numbers are occupied by a rarity
             else:
                 rarity = 'common'
-                common(data, rarity, christmas_data)
+                common(rarity)
                 return rarity
 
 
 
         # color generator for common rarity
-        def common(data, rarity, christmas_data):
+        def common(rarity):
             PF = [0,0,0]
             EW = [255,255,255]
             EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
@@ -124,11 +124,11 @@ def main_loop():
             BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for uncommon rarity
-        def uncommon(data, rarity, christmas_data):
+        def uncommon(rarity):
             PF = [0,0,0]
             EW = [0,0,0]
             EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
@@ -138,11 +138,11 @@ def main_loop():
             BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for rare rarity
-        def rare(data, rarity, christmas_data): # later on this will get complementary colors...
+        def rare(rarity): # later on this will get complementary colors...
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
@@ -154,11 +154,11 @@ def main_loop():
             BK = [255-BC[0],255-BC[1],255-BC[2]]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
 
         # color generator for legendary rarity
-        def legendary_r(data, rarity, christmas_data):
+        def legendary_r(rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
@@ -170,11 +170,11 @@ def main_loop():
             BK = [random.randint(50, 255),0,0]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for legendary rarity
-        def legendary_g(data, rarity, christmas_data):
+        def legendary_g(rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
@@ -186,11 +186,11 @@ def main_loop():
             BK = [0,random.randint(50, 255),0]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for legendary rarity
-        def legendary_b(data, rarity, christmas_data):
+        def legendary_b(rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
@@ -202,11 +202,11 @@ def main_loop():
             BK = [0,0,random.randint(50, 255)]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
 
         # color generator for classified rarity
-        def classified_blk(data, rarity, christmas_data):
+        def classified_blk(rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
             ECr = random.randint(0, 150)
@@ -219,11 +219,11 @@ def main_loop():
             BK = [BKr,BKr,BKr]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for classified rarity
-        def classified_wht(data, rarity, christmas_data):
+        def classified_wht(rarity):
             PF = [0,0,0] 
             EW = [80,80,80]
             ECr = random.randint(120, 200)
@@ -236,23 +236,23 @@ def main_loop():
             BK = [BKr,BKr,BKr]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
 
-        def holiday_christmas(data, rarity, christmas_data):
+        def holiday_christmas(rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
             EC = [random.randint(100, 255),random.randint(0, 255),random.randint(0, 255)]
             BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
             OT = [255-EC[0],255-EC[1],255-EC[2]]
-            BG = [250,249,213]
+            BG = [28,28,28]
             BK = [255-BC[0],255-BC[1],255-BC[2]]
             CH = [255, 0, 0]
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
             
-        def upsidedown(data, rarity, christmas_data):
+        def upsidedown(rarity):
             PF = [0,0,0] 
             EW = [0,0,0]
             EC = [random.randint(100, 255),random.randint(0, 255),random.randint(0, 255)]
@@ -262,34 +262,17 @@ def main_loop():
             BK = [255-BC[0],255-BC[1],255-BC[2]]
             CH = None
 
-            img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data)
+            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
 
 
 
         # img generator
-        def img_generator(data, rarity, PF, EW, EC, BC, OT, BG, BK, CH, christmas_data):        
+        def img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH):        
             RGB_data = []
 
             # makes a new array replacing the letters with the generated RGB colors
-            if rarity != 'Christmas':
-                for j in range(30):
-                    for k in range(30):
-                        if data[j][k] == 'PF':
-                            RGB_data.append(PF)
-                        elif data[j][k] == 'EW':
-                            RGB_data.append(EW)
-                        elif data[j][k] == 'EC':
-                            RGB_data.append(EC)
-                        elif data[j][k] == 'BC':
-                            RGB_data.append(BC)
-                        elif data[j][k] == 'OT':
-                            RGB_data.append(OT)
-                        elif data[j][k] == 'BG':
-                            RGB_data.append(BG)
-                        elif data[j][k] == 'BK':
-                            RGB_data.append(BK)
-            else:
+            if rarity == 'holiday':
                 for j in range(30):
                     for k in range(30):
                         if christmas_data[j][k] == 'PF':
@@ -308,7 +291,24 @@ def main_loop():
                             RGB_data.append(BK)
                         elif christmas_data[j][k] == 'CH':
                             RGB_data.append(CH)
-                
+            else:
+                for j in range(30):
+                    for k in range(30):
+                        if data[j][k] == 'PF':
+                            RGB_data.append(PF)
+                        elif data[j][k] == 'EW':
+                            RGB_data.append(EW)
+                        elif data[j][k] == 'EC':
+                            RGB_data.append(EC)
+                        elif data[j][k] == 'BC':
+                            RGB_data.append(BC)
+                        elif data[j][k] == 'OT':
+                            RGB_data.append(OT)
+                        elif data[j][k] == 'BG':
+                            RGB_data.append(BG)
+                        elif data[j][k] == 'BK':
+                            RGB_data.append(BK)
+
 
             # new dimensions for image
             dimensions = 480,480
@@ -332,9 +332,9 @@ def main_loop():
             rarity_array.append(i+1)
             rarity_array.append(rarity)
             
-        rarity(data, christmas_data)
+        rarity()
 
-    rarity(data, christmas_data)
+    rarity()
 
     rarity_display(rarity_array)
 
@@ -378,7 +378,7 @@ def rarity_display(rarity_array):
             legendary += 1
         elif rarity_array[i] == 'classified':
             classified += 1
-        elif rarity_array[i] == 'christmas':
+        elif rarity_array[i] == 'holiday':
             christmas += 1
         elif rarity_array[i] == 'upside down':
             upsidedown += 1
