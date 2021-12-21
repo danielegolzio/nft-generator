@@ -28,8 +28,8 @@ git clone https://github.com/poonchoi/nft-generator
 ```
 
 ## Usage:
- - Run `art-generator.py`
+ - Run `image-generator.py`
 ```
-python art-generator.py
+python image-generator.py
 ```
 
