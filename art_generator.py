@@ -365,11 +365,10 @@ def rarity_display(rarity_array):
     christmas = 0
     upsidedown = 0
     
-    print(rarity_array)
     del rarity_array[-2:]
-    print(rarity_array)
+    # print(rarity_array)
 
-    for i in range(len(rarity_array)):
+    for i in range(0, len(rarity_array)):
         if rarity_array[i] == 'common':
             common += 1
         elif rarity_array[i] == 'uncommon':
@@ -387,7 +386,7 @@ def rarity_display(rarity_array):
 
     print(f'\ncommon: {common}\nuncommon: {uncommon}\nrare: {rare}\nlegendary: {legendary}\nclassified: {classified}\nchristmas: {christmas}\nupside down: {upsidedown}\n')
 
-
+    
     
 if __name__ == '__main__':
     main_loop()
