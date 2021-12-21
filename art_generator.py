@@ -45,10 +45,10 @@ def main_loop():
                 common(rarity)
                 return rarity
                     
-            # 25% chance of getting this rarity
+            # # 25% chance of getting this rarity
             # elif number >= 5000 and number <= 7500:
             #     rarity = 'uncommon'
-            #     uncommon(data, rarity, christmas_data)
+            #     uncommon(rarity)
             #     return rarity
 
             # 15% chance of getting this rarity
@@ -94,16 +94,16 @@ def main_loop():
 
             # 0.1% chance of getting this rarity
             elif number >= 9700 and number <= 9710:
-               rarity = 'holiday'
-               main_colors = 'christmas'
-               holiday_christmas(rarity)
-               return rarity
+                rarity = 'holiday'
+                main_colors = 'christmas'
+                holiday_christmas(rarity)
+                return rarity
 
             # 0.01% chance of getting this rarity
             elif number == 10000:
-              rarity = 'upside down'
-              upsidedown(rarity)
-              return rarity
+                rarity = 'upside down'
+                upsidedown(rarity)
+                return rarity
             
             # this is here untill all 10000 numbers are occupied by a rarity
             else:
@@ -149,9 +149,9 @@ def main_loop():
             EW = [0,0,0]
             EC = [random.randint(100, 255),random.randint(0, 255),random.randint(0, 255)]
             BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-            OT = [255-EC[0],255-EC[1],255-EC[2]]
+            OT = [255-BC[0],255-BC[1],255-BC[2]]
             BG = [250,249,213]
-            BK = [255-BC[0],255-BC[1],255-BC[2]]
+            BK = [255-EC[0],255-EC[1],255-EC[2]]
             CH = None
 
             img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
@@ -365,7 +365,9 @@ def rarity_display(rarity_array):
     christmas = 0
     upsidedown = 0
     
-    # print(rarity_array)
+    print(rarity_array)
+    del rarity_array[-2:]
+    print(rarity_array)
 
     for i in range(len(rarity_array)):
         if rarity_array[i] == 'common':
