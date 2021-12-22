@@ -32,4 +32,4 @@ git clone https://github.com/poonchoi/nft-generator
 ```
 python image-generator.py
 ```
-
+The generated images will then appear in the images folder
