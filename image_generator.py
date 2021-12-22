@@ -2,10 +2,13 @@ import numpy as np
 import random
 from PIL import Image, ImageOps
 import os
+import time
 
 
 
 def main_loop():
+    start_time = time.time()
+
     # Make the NFT/ dir 
     PATH = makeNFTsDir()
 
@@ -105,7 +108,7 @@ def main_loop():
                 upsidedown(rarity)
                 return rarity
             
-            # this is here untill all 10000 numbers are occupied by a rarity
+            # this is here until all 10000 numbers are occupied by a rarity
             else:
                 rarity = 'common'
                 common(rarity)
@@ -335,7 +338,8 @@ def main_loop():
         rarity()
 
     rarity()
-
+    
+    print("Process finished --- %s seconds ---" % (time.time() - start_time))
     rarity_display(rarity_array)
 
 
