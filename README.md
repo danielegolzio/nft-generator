@@ -4,9 +4,9 @@
 This program will take an image of a duck and generate different versions of the same image...
 
 
-## Dependencies:
+<!-- ## Dependencies: -->
 <details>
-<summary>---------</summary>
+<summary>Dependencies</summary>
 <br>
 - Python 3.7+
 
@@ -16,9 +16,9 @@ Python Libraries Required:
 - pillow
 </details>
 
-## Installation:
+<!-- ## Installation: -->
 <details>
-<summary>---------</summary>
+<summary>Installation</summary>
 <br>
 1. Install numpy and pillow using pip:
 ```
@@ -32,9 +32,9 @@ git clone https://github.com/poonchoi/nft-generator
 ```
 </details>
 
-## Usage:
+<!-- ## Usage: -->
 <details>
-<summary>---------</summary>
+<summary>Usage</summary>
  - Run `image-generator.py`
 ```
 python image-generator.py
