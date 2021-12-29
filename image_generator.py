@@ -7,8 +7,6 @@ import time
 
 
 def main_loop():
-    start_time = time.time()
-
     # Make the NFT/ dir 
     PATH = makeNFTsDir()
 
@@ -35,6 +33,9 @@ def main_loop():
     christmas_data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in christmas_file.readlines()] # also made by Royce Chan
     christmas_file.close()
 
+    # takes the starting time
+    start_time = time.time()
+    
     # main loop
     for i in range(0, loop_counter):
         
