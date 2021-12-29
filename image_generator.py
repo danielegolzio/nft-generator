@@ -48,6 +48,8 @@ def main_loop():
         # rarity generator
         def rarity():
             raritys = ['common', 'rare', 'legendary_r', 'legendary_g', 'legendary_b', 'classified_blk', 'classified_wht', 'christmas', 'upsidedown']
+            
+            # chooses rarity based on weight
             choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.0025])
                     
             if choice == 'common':
