@@ -17,9 +17,15 @@ def main_loop():
     while True:
         try:
             loop_counter = int(input('How many images would you like to generate?: '))
-            break
+            if loop_counter < 1:  # User entered value less than 1
+                print("Number of images must be at least 1.")
+            else:  # Value is an integer and greater than or equal to 1
+                break
         except ValueError:
-            print('wrong input...')
+            print('Wrong input...')
+
+    # Start time for counting elapsed image generation time
+    start_time = time.time()
 
     # turns image_data file into a list
     file = open('image_data.txt', 'r')
@@ -340,7 +346,8 @@ def main_loop():
 
     rarity()
     
-    print("Process finished --- %s seconds ---" % (time.time() - start_time))
+    # Prints elapsed time to generate images rounded to 2 decimal places
+    print(f"Process finished --- {round(time.time()-start_time, 2)}s seconds ---")
     rarity_display(rarity_array)
 
 
