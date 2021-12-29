@@ -47,78 +47,57 @@ def main_loop():
         
         # rarity generator
         def rarity():
-            number = random.randint(1, 10000)
+            raritys = ['common', 'rare', 'legendary_r', 'legendary_g', 'legendary_b', 'classified_blk', 'classified_wht', 'christmas', 'upsidedown']
+            choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.0025])
                     
-            # 50% chance of getting this rarity
-            if number >= 1 and number <= 5000:
+            if choice == 'common':
                 rarity = 'common'
                 common(rarity)
                 return rarity
-                    
-            # # 25% chance of getting this rarity
-            # elif number >= 5000 and number <= 7500:
-            #     rarity = 'uncommon'
-            #     uncommon(rarity)
-            #     return rarity
 
-            # 15% chance of getting this rarity
-            elif number >= 7500 and number <= 9000:
+            elif choice == 'rare':
                 rarity = 'rare'
                 rare(rarity)
                 return rarity
 
-            # 2% chance of getting this rarity
-            elif number >= 9000 and number <= 9200:
+            elif choice == 'legendary_r':
                 rarity = 'legendary'
                 main_colors = 'red'
                 legendary_r(rarity)
                 return rarity
 
-            # 2% chance of getting this rarity
-            elif number >= 9200 and number <= 9400:
+            elif choice == 'legendary_g':
                 rarity = 'legendary'
                 main_colors = 'green'
                 legendary_g(rarity)
                 return rarity
 
-            # 2% chance of getting this rarity
-            elif number >= 9400 and number <= 9600:
+            elif choice == 'legendary_b':
                 rarity = 'legendary'
                 main_colors = 'blue'
                 legendary_b(rarity)
                 return rarity
 
-            # 1% chance of getting this rarity
-            elif number >= 9600 and number <= 9700:
+            elif choice == 'classified_blk':
                 rarity = 'classified'
-                main_colors = 'black'
                 classified_blk(rarity)
                 return rarity
 
-            # 1% chance of getting this rarity
-            elif number >= 9700 and number <= 9800:
+            elif choice == 'classified_wht':
                 rarity = 'classified'
-                main_colors = 'white'
                 classified_wht(rarity)
                 return rarity
 
             # 0.1% chance of getting this rarity
-            elif number >= 9700 and number <= 9710:
-                rarity = 'holiday'
-                main_colors = 'christmas'
-                holiday_christmas(rarity)
+            elif choice == 'christmas':
+                rarity = 'christmas'
+                christmas(rarity)
                 return rarity
 
             # 0.01% chance of getting this rarity
-            elif number == 10000:
+            elif choice == 'upsidedown':
                 rarity = 'upside down'
                 upsidedown(rarity)
-                return rarity
-            
-            # this is here until all 10000 numbers are occupied by a rarity
-            else:
-                rarity = 'common'
-                common(rarity)
                 return rarity
 
 
@@ -127,20 +106,6 @@ def main_loop():
         def common(rarity):
             PF = [0,0,0]
             EW = [255,255,255]
-            EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
-            BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-            OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
-            BG = [250,249,213]
-            BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-            CH = None
-
-            img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
-            return PF, EW, EC, BC, OT, BG, BK, CH
-        
-        # color generator for uncommon rarity
-        def uncommon(rarity):
-            PF = [0,0,0]
-            EW = [0,0,0]
             EC = [random.randint(0, 250),random.randint(0, 250),random.randint(0, 250)]
             BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
             OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
@@ -219,13 +184,13 @@ def main_loop():
         def classified_blk(rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
-            ECr = random.randint(0, 150)
+            ECr = random.randint(0, 120)
             EC = [ECr,ECr,ECr]
-            BCr = random.randint(0, 150)
+            BCr = random.randint(0, 120)
             BC = [BCr,BCr,BCr]
             OT = [0,0,0]
             BG = [250,249,213]
-            BKr = random.randint(0,150)
+            BKr = random.randint(0,120)
             BK = [BKr,BKr,BKr]
             CH = None
 
@@ -249,14 +214,14 @@ def main_loop():
             img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
             return PF, EW, EC, BC, OT, BG, BK, CH
 
-        def holiday_christmas(rarity):
+        def christmas(rarity):
             PF = [0,0,0] 
             EW = [255,255,255]
             EC = [random.randint(100, 255),random.randint(0, 255),random.randint(0, 255)]
             BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-            OT = [255-EC[0],255-EC[1],255-EC[2]]
+            OT = [255-BC[0],255-BC[1],255-BC[2]]
             BG = [28,28,28]
-            BK = [255-BC[0],255-BC[1],255-BC[2]]
+            BK = [255-EC[0],255-EC[1],255-EC[2]]
             CH = [255, 0, 0]
 
             img_generator(rarity, PF, EW, EC, BC, OT, BG, BK, CH)
@@ -282,7 +247,7 @@ def main_loop():
             RGB_data = []
 
             # makes a new array replacing the letters with the generated RGB colors
-            if rarity == 'holiday':
+            if rarity == 'christmas':
                 for j in range(30):
                     for k in range(30):
                         if christmas_data[j][k] == 'PF':
@@ -390,7 +355,7 @@ def rarity_display(rarity_array):
             legendary += 1
         elif rarity_array[i] == 'classified':
             classified += 1
-        elif rarity_array[i] == 'holiday':
+        elif rarity_array[i] == 'christmas':
             christmas += 1
         elif rarity_array[i] == 'upside down':
             upsidedown += 1
