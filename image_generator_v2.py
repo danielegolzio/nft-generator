@@ -136,9 +136,11 @@ def main_loop():
             image_layering(img_data, accessories, dimensions, num_of_accessories)
             return img_data, accessories, dimensions, num_of_accessories
         
-        
+
+
         def image_layering(img_data, accessories, dimensions, num_of_accessories):
             if accessories ==  None:
+                img_data.save(f'{PATH}/duck-{counter+1}.png')
                 return None
 
             else:
@@ -156,6 +158,7 @@ def main_loop():
                     
         accessory_gen()
 
+    # calls this function at very start of loop
     accessory_gen()
     
     # Prints elapsed time to generate images rounded to 2 decimal places

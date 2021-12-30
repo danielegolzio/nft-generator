@@ -302,7 +302,10 @@ def main_loop():
             # flips image if its upside down rarity
             if rarity == 'upside down':
                 img_data = ImageOps.flip(img_data)
-
+                
+            # cigarette = Image.open("accessories/cigarette.png")
+            # cigarette = cigarette.resize(dimensions, resample=0)
+            # img_data.paste(cigarette, (0,0), cigarette)
             img_data.save(f'{PATH}/duck-{i+1}.png')
 
             # array used later to display how many of each rarity duck was generated
