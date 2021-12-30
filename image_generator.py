@@ -119,7 +119,7 @@ def main_loop():
             return PF, EW, EC, BC, OT, BG, BK, CH
         
         # color generator for rare rarity
-        def rare(rarity): # later on this will get complementary colors...
+        def rare(rarity):
             eyeWhiteColors = [255,0]
             eyeWhite = random.choice(eyeWhiteColors)
             PF = [0,0,0] 
