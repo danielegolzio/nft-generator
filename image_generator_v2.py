@@ -141,20 +141,34 @@ def main_loop():
         def image_layering(img_data, accessories, dimensions, num_of_accessories):
             if accessories ==  None:
                 img_data.save(f'{PATH}/duck-{counter+1}.png')
-                return None
+                print('none')
 
-            else:
-                for i in range(num_of_accessories):
-                    if i == 'cigarette':
-                        cigarette = Image.open("accessories/cigarette.png")
-                        cigarette = cigarette.resize(dimensions, resample=0)
-                        img_data.paste(cigarette, (0,0), cigarette)
-                        img_data.save(f'{PATH}/duck-{counter+1}.png')
+            elif accessories[counter] == 'cigarette':
+                cigarette = Image.open("accessories/cigarette.png")
+                cigarette = cigarette.resize(dimensions, resample=0)
+                img_data.paste(cigarette, (0,0), cigarette)
+                img_data.save(f'{PATH}/duck-{counter+1}.png')
+            
+            elif accessories[counter] == 'upsidedown':
+                # flips image if its upside down rarity
+                img_data = ImageOps.flip(img_data)
+                img_data.save(f'{PATH}/duck-{counter+1}.png')
+                print('upsidedown')
+                    
+                # for i in range(num_of_accessories):
+                #     if i == 'cigarette':
+                #         cigarette = Image.open("accessories/cigarette.png")
+                #         cigarette = cigarette.resize(dimensions, resample=0)
+                #         img_data.paste(cigarette, (0,0), cigarette)
+                #         img_data.save(f'{PATH}/duck-{counter+1}.png')
+                #         print('cigarette')
                         
-                    elif i == 'upsidedown':
-                        # flips image if its upside down rarity
-                        img_data = ImageOps.flip(img_data)
-                        img_data.save(f'{PATH}/duck-{counter+1}.png')
+                #     elif i == 'upsidedown':
+                #         # flips image if its upside down rarity
+                #         img_data = ImageOps.flip(img_data)
+                #         img_data.save(f'{PATH}/duck-{counter+1}.png')
+                #         print('upsidedown')
+            return None
                     
         accessory_gen()
 
