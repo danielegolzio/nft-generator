@@ -3,7 +3,7 @@ import random
 from PIL import Image, ImageOps
 import os
 import time
-from color-generator/color_generator.py import *
+from color_generator import *
 
 
 
