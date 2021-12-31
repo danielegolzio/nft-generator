@@ -20,9 +20,8 @@ def common():
     OT = [random.randint(100, 250),random.randint(100, 250),random.randint(100, 250)]
     BG = [250,249,213]
     BK = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for rare rarity
 def rare():
@@ -35,9 +34,8 @@ def rare():
     OT = [255-BC[0],255-BC[1],255-BC[2]]
     BG = [250,249,213]
     BK = [255-EC[0],255-EC[1],255-EC[2]]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for legendary rarity
 def legendary_r():
@@ -50,9 +48,8 @@ def legendary_r():
     OT = [random.randint(100, 150),0,0]
     BG = [random.randint(0, 50),0,0]
     BK = [random.randint(50, 100),0,0]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for legendary rarity
 def legendary_g():
@@ -65,9 +62,8 @@ def legendary_g():
     OT = [0,random.randint(100, 150),0]
     BG = [0,random.randint(0, 50),0]
     BK = [0,random.randint(50, 100),0]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for legendary rarity
 def legendary_b():
@@ -80,9 +76,8 @@ def legendary_b():
     OT = [0,0,random.randint(100, 150)]
     BG = [0,0,random.randint(0, 50)]
     BK = [0,0,random.randint(50, 100)]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for classified rarity
 def classified_blk():
@@ -96,9 +91,8 @@ def classified_blk():
     BG = [250,249,213]
     BKr = random.randint(0,150)
     BK = [BKr,BKr,BKr]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for classified rarity
 def classified_wht():
@@ -112,9 +106,8 @@ def classified_wht():
     BG = [28,28,28]
     BKr = random.randint(160,210)
     BK = [BKr,BKr,BKr]
-    CH = None
-
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    
+    return PF, EW, EC, BC, OT, BG, BK
 
 # color generator for holiday christmas
 def christmas():
@@ -125,9 +118,8 @@ def christmas():
     OT = [255-EC[0],255-EC[1],255-EC[2]]
     BG = [40,40,40]
     BK = [255-BC[0],255-BC[1],255-BC[2]]
-    CH = [255, 0, 0]
-
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    
+    return PF, EW, EC, BC, OT, BG, BK
 
 
 # color generator for upside down image
@@ -139,9 +131,8 @@ def upsidedown():
     OT = [255-EC[0],255-EC[1],255-EC[2]]
     BG = [250,249,213]
     BK = [255-BC[0],255-BC[1],255-BC[2]]
-    CH = None
 
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
 
 
 # color generator for smoking duck
@@ -155,6 +146,5 @@ def smoking():
     BG = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
     OT = [255-BG[0],255-BG[1],255-BG[2]]
     BK = [255-BC[0],255-BC[1],255-BC[2]]
-    CH = None
     
-    return PF, EW, EC, BC, OT, BG, BK, CH
+    return PF, EW, EC, BC, OT, BG, BK
