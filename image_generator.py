@@ -76,12 +76,10 @@ def rarity_gen():
         rarity = 'classified'
         PF, EW, EC, BC, OT, BG, BK, CH = classified_wht()
 
-    # 0.1% chance of getting this rarity
     elif choice == 'christmas':
         rarity = 'christmas'
         PF, EW, EC, BC, OT, BG, BK, CH = christmas()
 
-    # 0.01% chance of getting this rarity
     elif choice == 'upsidedown':
         rarity = 'upside down'
         PF, EW, EC, BC, OT, BG, BK, CH = upsidedown()
