@@ -96,6 +96,7 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     return img_data, generated_accessories
 
 
+
 def accessory_gen():
     all_accessories =['cigarette', 'upsidedown', 'christmas']
     accessories_T_F = random.choice([True, False])
