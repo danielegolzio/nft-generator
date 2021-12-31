@@ -35,8 +35,9 @@ def rarity_gen():
     raritys = ['common', 'rare', 'legendary_r', 'legendary_g', 'legendary_b', 'classified_blk', 'classified_wht', 'christmas', 'upsidedown', 'smoking']
             
     # chooses 1 rarity based on probability(p)
-    # choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.00125, 0.00125])
-    choice = random.choice(raritys)     
+    choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.00125, 0.00125])
+    #choice = random.choice(raritys)
+         
     if choice == 'common':
         rarity = 'common'
         PF, EW, EC, BC, OT, BG, BK = common()
