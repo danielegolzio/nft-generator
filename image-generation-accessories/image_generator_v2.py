@@ -9,6 +9,7 @@ import os
 import time
 
 
+
 def txt_img_file():
     # turns image_data file into a list
     file = open('image-data/image_data.txt', 'r')
@@ -17,6 +18,7 @@ def txt_img_file():
     file.close()
 
     return data
+
 
 
 def image_num():
@@ -47,7 +49,8 @@ def color_gen():
     BK = [255-BC[0],255-BC[1],255-BC[2]]
     
     return PF, EW, EC, BC, OT, BG, BK
-    
+
+
 
 def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
@@ -80,7 +83,12 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     img_data = Image.fromarray(RGB_data, 'RGB')
     img_data = img_data.resize(dimensions, resample=0)
     
-    return dimensions, img_data
+    # generates the cigarette accessory
+    cigarette = Image.open('accessories/cigarette.png')
+    cigarette = cigarette.resize(dimensions, resample=0)
+    
+    return dimensions, img_data, cigarette
+
 
 
 def accessory_gen():
@@ -96,22 +104,20 @@ def accessory_gen():
     return accessory
 
 
-def img_layering(i, img_data, accessory, dimensions, PATH):    
-    if accessory == 'cigarette':
-        print('cigarette')
-        cigarette = Image.open('accessories/cigarette.png')
-        cigarette = cigarette.resize(dimensions, resample=0)
+
+def img_layering(i, cigarette, img_data, accessory, PATH):    
+    if accessory[0] == 'cigarette':
         img_data.paste(cigarette, (0,0), cigarette)
         img_data.save(f'{PATH}/duck-{i+1}.png')
         
-    elif accessory == 'upsidedown':
-        print('upsidedown')
+    elif accessory[0] == 'upsidedown':
         img_data = ImageOps.flip(img_data)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     else:
         img_data.save(f'{PATH}/duck-{i+1}.png')
-            
+
+          
 
 # Creates directory to store generated images
 def makeNFTsDir():
@@ -125,6 +131,7 @@ def makeNFTsDir():
         pass
 
     return path
+
 
 
 def main_loop():
@@ -143,14 +150,15 @@ def main_loop():
         # generates rarity
         PF, EW, EC, BC, OT, BG, BK = color_gen()
 
-        dimensions, img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
+        dimensions, img_data, cigarette = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
 
         accessory = accessory_gen()
         
-        img_layering(i, img_data, accessory, dimensions, PATH)
+        img_layering(i, cigarette ,img_data, accessory, PATH)
         
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f"Process finished --- {round(time.time()-start_time, 2)}s seconds ---")
+
 
 
 if __name__ == '__main__':
