@@ -84,7 +84,7 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     img_data = img_data.resize(dimensions, resample=0)
     
     # generates the cigarette accessory
-    cigarette = Image.open('accessories/cigarette.png')
+    cigarette = Image.open('image-generation-accessories/accessories/cigarette.png')
     cigarette = cigarette.resize(dimensions, resample=0)
     
     return dimensions, img_data, cigarette
