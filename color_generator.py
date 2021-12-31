@@ -1,3 +1,13 @@
+'''
+PF = Picture Frame
+EW = Eye White
+EC = Eye Color
+BC = Body Color
+OT = OutLine
+BG = BackGround
+BK = BeaK
+CH = Christmas Hat
+'''
 import random
 
 
