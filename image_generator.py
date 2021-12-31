@@ -6,7 +6,6 @@ import time
 from color_generator import *
 
 
-
 def txt_img_file():
     # turns image_data file into a list
     file = open('image-data/image_data.txt', 'r')
