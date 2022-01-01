@@ -13,3 +13,6 @@ gold_chain = gold_chain.resize(dimensions, resample=0)
 
 back_cap = Image.open("accessories/back_cap.png")
 back_cap = back_cap.resize(dimensions, resample=0)
+
+bow_tie = Image.open("accessories/bow_tie.png")
+bow_tie = bow_tie.resize(dimensions, resample=0)
