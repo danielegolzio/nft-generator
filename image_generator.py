@@ -10,7 +10,7 @@ def txt_img_file():
     # turns image_data file into a list
     file = open('image-data/image_data.txt', 'r')
     # new array that contains all RGB pixel values
-    data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
+    data = [line.strip('\n')[:-1].split(',') if line[-2] == ',' else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
     file.close()
 
     return data
@@ -22,7 +22,7 @@ def image_num():
         try:
             loop_counter = int(input('How many images would you like to generate?: '))
             if loop_counter < 1:  # User entered value less than 1
-                print("Number of images must be at least 1.")
+                print('Number of images must be at least 1.')
             else:  # Value is an integer and greater than or equal to 1
                 break
         except ValueError:
@@ -105,7 +105,7 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
                 RGB_data.append(BK)
 
     # new dimensions for image
-    dimensions = 480,480
+    dimensions = 400,400
 
     # array handling with numpy
     RGB_data = np.array(RGB_data, dtype=np.uint8)
@@ -122,13 +122,13 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     elif rarity == 'smoking':
-        cigarette = Image.open("image-generation-accessories/accessories/cigarette.png")
+        cigarette = Image.open('accessories/cigarette.png')
         cigarette = cigarette.resize(dimensions, resample=0)
         img_data.paste(cigarette, (0,0), cigarette)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     elif rarity == 'christmas':
-        christmas = Image.open("image-generation-accessories/accessories/christmas.png")
+        christmas = Image.open('accessories/christmas.png')
         christmas = christmas.resize(dimensions, resample=0)
         img_data.paste(christmas, (0,0), christmas)
         img_data.save(f'{PATH}/duck-{i+1}.png')
@@ -140,7 +140,7 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
 # Creates directory to store generated images
 def makeNFTsDir():
     cwd = os.getcwd()
-    path = os.path.join(cwd, "Images")
+    path = os.path.join(cwd, 'Images')
 
     # Try and make the image/ dir assuming it doesn't exist
     try:
@@ -171,7 +171,7 @@ def main_loop():
         img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK)
 
     # prints elapsed time to generate images rounded to 2 decimal places
-    print(f"Process finished --- {round(time.time()-start_time, 2)}s seconds ---")
+    print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
 
 
 if __name__ == '__main__':
