@@ -8,6 +8,7 @@ from PIL import Image, ImageOps
 import os
 import time
 from all_accessories import *
+from colors import *
 
 
 
@@ -35,21 +36,6 @@ def image_num():
             print('Wrong input...')
 
     return loop_counter
-
-
-
-def color_gen():
-    eyeWhiteColors = [255,0]
-    eyeWhite = random.choice(eyeWhiteColors)
-    PF = [0,0,0]
-    EW = [50,50,50]
-    EC = [random.randint(150, 255),random.randint(150, 255),random.randint(150, 255)]
-    BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BG = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    OT = [255-BG[0],255-BG[1],255-BG[2]]
-    BK = [255-BC[0],255-BC[1],255-BC[2]]
-    
-    return PF, EW, EC, BC, OT, BG, BK
 
 
 
@@ -89,7 +75,7 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
 
 
 def accessory_gen():
-    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain', 'back_cap', 'bow_tie']
+    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain', 'back_cap', 'bow_tie', 'joint']
     accessories_T_F = random.choice([True, False])
     
     if accessories_T_F == True:
@@ -124,6 +110,10 @@ def img_layering(i, img_data, accessory, PATH):
     
     elif accessory[0] == 'bow_tie':
         img_data.paste(bow_tie, (0,0), bow_tie)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+        
+    elif accessory[0] == 'joint':
+        img_data.paste(joint, (0,0), joint)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     else:
