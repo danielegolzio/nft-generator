@@ -7,6 +7,7 @@ import random
 from PIL import Image, ImageOps
 import os
 import time
+from all_accessories import *
 
 
 
@@ -82,26 +83,13 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     # using PIL to turn the RGB values into an image
     img_data = Image.fromarray(RGB_data, 'RGB')
     img_data = img_data.resize(dimensions, resample=0)
-    
-    # generates the cigarette accessory
-    cigarette = Image.open('accessories/cigarette.png')
-    cigarette = cigarette.resize(dimensions, resample=0)
-    
-    # generates the christmas accessory
-    christmas = Image.open('accessories/christmas.png')
-    christmas = christmas.resize(dimensions, resample=0)
-    
-    gold_chain = Image.open('accessories/gold_chain.png')
-    gold_chain = gold_chain.resize(dimensions, resample=0)
-    
-    generated_accessories = [cigarette, christmas, gold_chain]
-    
-    return img_data, generated_accessories
+
+    return img_data
 
 
 
 def accessory_gen():
-    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain']
+    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain', 'back_cap', 'bow_tie']
     accessories_T_F = random.choice([True, False])
     
     if accessories_T_F == True:
@@ -113,9 +101,8 @@ def accessory_gen():
 
 
 
-def img_layering(i, generated_accessories, img_data, accessory, PATH):    
+def img_layering(i, img_data, accessory, PATH):    
     if accessory[0] == 'cigarette':
-        cigarette = generated_accessories[0]
         img_data.paste(cigarette, (0,0), cigarette)
         img_data.save(f'{PATH}/duck-{i+1}.png')
         
@@ -124,19 +111,25 @@ def img_layering(i, generated_accessories, img_data, accessory, PATH):
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     elif accessory[0] == 'christmas':
-        christmas = generated_accessories[1]
         img_data.paste(christmas, (0,0), christmas)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     elif accessory[0] == 'gold_chain':
-        gold_chain = generated_accessories[2]
         img_data.paste(gold_chain, (0,0), gold_chain)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+        
+    elif accessory[0] == 'back_cap':
+        img_data.paste(back_cap, (0,0), back_cap)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+    
+    elif accessory[0] == 'bow_tie':
+        img_data.paste(bow_tie, (0,0), bow_tie)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     else:
         img_data.save(f'{PATH}/duck-{i+1}.png')
 
-          
+     
 
 # Creates directory to store generated images
 def makeNFTsDir():
@@ -169,11 +162,11 @@ def main_loop():
         # generates rarity
         PF, EW, EC, BC, OT, BG, BK = color_gen()
 
-        img_data, generated_accessories = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
+        img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
 
         accessory = accessory_gen()
         
-        img_layering(i, generated_accessories ,img_data, accessory, PATH)
+        img_layering(i ,img_data, accessory, PATH)
         
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
