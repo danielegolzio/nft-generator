@@ -2,7 +2,8 @@ from all_accessories import *
 import random
 
 hats = [
-    christmas
+    christmas,
+    back_cap
 ]
 
 mouth = [
