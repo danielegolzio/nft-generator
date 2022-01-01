@@ -14,7 +14,7 @@ def txt_img_file():
     # turns image_data file into a list
     file = open('image-data/image_data.txt', 'r')
     # new array that contains all RGB pixel values
-    data = [line.strip('\n')[:-1].split(',') if line[-2] == "," else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
+    data = [line.strip('\n')[:-1].split(',') if line[-2] == ',' else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
     file.close()
 
     return data
@@ -27,7 +27,7 @@ def image_num():
         try:
             loop_counter = int(input('How many images would you like to generate?: '))
             if loop_counter < 1: # User entered value less than 1
-                print("Number of images must be at least 1.")
+                print('Number of images must be at least 1.')
             else: # Value is an integer and greater than or equal to 1
                 break
         except ValueError:
@@ -73,7 +73,7 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
                 RGB_data.append(BK)
 
     # new dimensions for image
-    dimensions = (480,480)
+    dimensions = (400,400)
 
     # array handling with numpy
     RGB_data = np.array(RGB_data, dtype=np.uint8)
@@ -84,21 +84,24 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     img_data = img_data.resize(dimensions, resample=0)
     
     # generates the cigarette accessory
-    cigarette = Image.open('image-generation-accessories/accessories/cigarette.png')
+    cigarette = Image.open('accessories/cigarette.png')
     cigarette = cigarette.resize(dimensions, resample=0)
     
     # generates the christmas accessory
-    christmas = Image.open("image-generation-accessories/accessories/christmas.png")
+    christmas = Image.open('accessories/christmas.png')
     christmas = christmas.resize(dimensions, resample=0)
     
-    generated_accessories = [cigarette, christmas]
+    gold_chain = Image.open('accessories/gold_chain.png')
+    gold_chain = gold_chain.resize(dimensions, resample=0)
+    
+    generated_accessories = [cigarette, christmas, gold_chain]
     
     return img_data, generated_accessories
 
 
 
 def accessory_gen():
-    all_accessories =['cigarette', 'upsidedown', 'christmas']
+    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain']
     accessories_T_F = random.choice([True, False])
     
     if accessories_T_F == True:
@@ -125,6 +128,11 @@ def img_layering(i, generated_accessories, img_data, accessory, PATH):
         img_data.paste(christmas, (0,0), christmas)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
+    elif accessory[0] == 'gold_chain':
+        gold_chain = generated_accessories[2]
+        img_data.paste(gold_chain, (0,0), gold_chain)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+    
     else:
         img_data.save(f'{PATH}/duck-{i+1}.png')
 
@@ -133,7 +141,7 @@ def img_layering(i, generated_accessories, img_data, accessory, PATH):
 # Creates directory to store generated images
 def makeNFTsDir():
     cwd = os.getcwd()
-    path = os.path.join(cwd, "Images")
+    path = os.path.join(cwd, 'Images')
 
     # Try and make the image/ dir assuming it doesn't exist
     try:
@@ -168,7 +176,7 @@ def main_loop():
         img_layering(i, generated_accessories ,img_data, accessory, PATH)
         
     # prints elapsed time to generate images rounded to 2 decimal places
-    print(f"Process finished --- {round(time.time()-start_time, 2)}s seconds ---")
+    print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
 
 
 
