@@ -10,3 +10,6 @@ christmas = christmas.resize(dimensions, resample=0)
 
 gold_chain = Image.open("accessories/gold_chain.png")
 gold_chain = gold_chain.resize(dimensions, resample=0)
+
+back_cap = Image.open("accessories/back_cap.png")
+back_cap = back_cap.resize(dimensions, resample=0)
