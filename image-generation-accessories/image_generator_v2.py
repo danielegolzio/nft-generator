@@ -13,7 +13,7 @@ hats = [christmas, back_cap]
 
 mouth = [cigarette, joint]
 
-eyes = [None]
+eyes = [head_bandana_red]
 
 body = [gold_chain, bow_tie]
 
@@ -39,11 +39,10 @@ def accessory_gen():
     else:
         mouth_item = None
         
-    # if eye_item_bool:
-    #     # eye_item = random.choice(eyes)
-    #     funky_item = None
-    # else:
-    #     eye_item = None
+    if eye_item_bool:
+        eye_item = random.choice(eyes)
+    else:
+        eye_item = None
         
     if body_item_bool:
         body_item = random.choice(body)
@@ -56,7 +55,7 @@ def accessory_gen():
     # else:
     #     funky_item = None
         
-    return hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool
+    return hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool
 
 
 
@@ -97,7 +96,7 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
 
 
 # layers all of the generated accessories onto the duck
-def img_layering(i, img_data, PATH, hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool):
+def img_layering(i, img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool):
     if hat_item_bool:
         img_data.paste(hat_item, (0,0), hat_item)
         img_data.save(f'{PATH}/duck-{i+1}.png')
@@ -106,6 +105,9 @@ def img_layering(i, img_data, PATH, hat_item, mouth_item, body_item, hat_item_bo
         img_data.save(f'{PATH}/duck-{i+1}.png')
     if body_item_bool:
         img_data.paste(body_item, (0,0), body_item)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+    if eye_item_bool:
+        img_data.paste(eye_item, (0,0), eye_item)
         img_data.save(f'{PATH}/duck-{i+1}.png')
 
 
@@ -173,9 +175,9 @@ def main_loop():
 
         img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
 
-        hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool = accessory_gen()
+        hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
         
-        img_layering(i ,img_data, PATH, hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool)
+        img_layering(i ,img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool)
         
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
