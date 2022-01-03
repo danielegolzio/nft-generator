@@ -1,7 +1,3 @@
-'''
-This image generator will no longer include rarity's.
-Instead the ducks have randomly added accessories. 
-''' 
 import numpy as np
 import random
 from PIL import Image, ImageOps
@@ -12,33 +8,59 @@ from colors import *
 
 
 
-def txt_img_file():
-    # turns image_data file into a list
-    file = open('image-data/image_data.txt', 'r')
-    # new array that contains all RGB pixel values
-    data = [line.strip('\n')[:-1].split(',') if line[-2] == ',' else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
-    file.close()
+# lists containing all accessories
+hats = [christmas, back_cap]
 
-    return data
+mouth = [cigarette, joint]
 
+eyes = [None]
 
+body = [gold_chain, bow_tie]
 
-def image_num():
-    # asks user how many images they want to make
-    while True:
-        try:
-            loop_counter = int(input('How many images would you like to generate?: '))
-            if loop_counter < 1: # User entered value less than 1
-                print('Number of images must be at least 1.')
-            else: # Value is an integer and greater than or equal to 1
-                break
-        except ValueError:
-            print('Wrong input...')
-
-    return loop_counter
+funky = ['upsidedown']
 
 
 
+# generates all the accessories that the duck will have
+def accessory_gen():
+    hat_item_bool = random.choice([True, False])
+    mouth_item_bool = random.choice([True, False])
+    eye_item_bool = random.choice([True, False])
+    body_item_bool = random.choice([True, False])
+    funky_item_bool = random.choice([True, False])
+    
+    if hat_item_bool:
+        hat_item = random.choice(hats)
+    else:
+        hat_item = None
+        
+    if mouth_item_bool:
+        mouth_item = random.choice(mouth)
+    else:
+        mouth_item = None
+        
+    # if eye_item_bool:
+    #     # eye_item = random.choice(eyes)
+    #     funky_item = None
+    # else:
+    #     eye_item = None
+        
+    if body_item_bool:
+        body_item = random.choice(body)
+    else:
+        body_item = None
+        
+    # if funky_item_bool:
+    #     # funky_item = random.choice(funky)
+    #     funky_item = None
+    # else:
+    #     funky_item = None
+        
+    return hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool
+
+
+
+# generates base image based on generated colors
 def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
 
@@ -74,52 +96,48 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
 
 
 
-def accessory_gen():
-    all_accessories =['cigarette', 'upsidedown', 'christmas', 'gold_chain', 'back_cap', 'bow_tie', 'joint']
-    accessories_T_F = random.choice([True, False])
-    
-    if accessories_T_F == True:
-        accessory = random.choices(all_accessories, weights=None, cum_weights=None, k=1)
-    else:
-        accessory = 'None'
-        
-    return accessory
+# layers all of the generated accessories onto the duck
+def img_layering(i, img_data, PATH, hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool):
+    if hat_item_bool:
+        img_data.paste(hat_item, (0,0), hat_item)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+    if mouth_item_bool:
+        img_data.paste(mouth_item, (0,0), mouth_item)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+    if body_item_bool:
+        img_data.paste(body_item, (0,0), body_item)
+        img_data.save(f'{PATH}/duck-{i+1}.png')
+
+
+
+# turns the txt file contianing the image data into a list
+def txt_img_file():
+    # turns image_data file into a list
+    file = open('image-data/image_data.txt', 'r')
+    # new array that contains all RGB pixel values
+    data = [line.strip('\n')[:-1].split(',') if line[-2] == ',' else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
+    file.close()
+
+    return data
 
 
 
-def img_layering(i, img_data, accessory, PATH):    
-    if accessory[0] == 'cigarette':
-        img_data.paste(cigarette, (0,0), cigarette)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-        
-    elif accessory[0] == 'upsidedown':
-        img_data = ImageOps.flip(img_data)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-    
-    elif accessory[0] == 'christmas':
-        img_data.paste(christmas, (0,0), christmas)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-    
-    elif accessory[0] == 'gold_chain':
-        img_data.paste(gold_chain, (0,0), gold_chain)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-        
-    elif accessory[0] == 'back_cap':
-        img_data.paste(back_cap, (0,0), back_cap)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-    
-    elif accessory[0] == 'bow_tie':
-        img_data.paste(bow_tie, (0,0), bow_tie)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-        
-    elif accessory[0] == 'joint':
-        img_data.paste(joint, (0,0), joint)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-    
-    else:
-        img_data.save(f'{PATH}/duck-{i+1}.png')
+# gets the user to input how many images they want generated
+def image_num():
+    # asks user how many images they want to make
+    while True:
+        try:
+            loop_counter = int(input('How many images would you like to generate?: '))
+            if loop_counter < 1: # User entered value less than 1
+                print('Number of images must be at least 1.')
+            else: # Value is an integer and greater than or equal to 1
+                break
+        except ValueError:
+            print('Wrong input...')
 
-     
+    return loop_counter
+
+
 
 # Creates directory to store generated images
 def makeNFTsDir():
@@ -136,8 +154,9 @@ def makeNFTsDir():
 
 
 
+# main loop which generates the requested number of images
 def main_loop():
-    # Make the NFT/ dir 
+
     PATH = makeNFTsDir()
     
     data = txt_img_file()
@@ -154,9 +173,9 @@ def main_loop():
 
         img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
 
-        accessory = accessory_gen()
+        hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool = accessory_gen()
         
-        img_layering(i ,img_data, accessory, PATH)
+        img_layering(i ,img_data, PATH, hat_item, mouth_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool)
         
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
