@@ -19,3 +19,6 @@ bow_tie = bow_tie.resize(dimensions, resample=0)
 
 joint = Image.open("accessories/joint.png")
 joint = joint.resize(dimensions, resample=0)
+
+head_bandana_red = Image.open("accessories/head_bandana_red.png")
+head_bandana_red = head_bandana_red.resize(dimensions, resample=0)
