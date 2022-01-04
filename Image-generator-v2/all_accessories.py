@@ -1,5 +1,5 @@
 from PIL import Image
-dimensions = 400,400
+dimensions = 420,420
 
 
 cigarette = Image.open('accessories/cigarette.png')
