@@ -4,7 +4,7 @@ from numpy import asarray
 
 def image_data(): # opens an image and returns a numpy array with RGB values of each pixel
     # image_name = input('file name: ')
-    image = Image.open('template-duck.png')
+    image = Image.open('template-images/template-duck.png')
     data = asarray(image)
 
     image_data_file(data)
