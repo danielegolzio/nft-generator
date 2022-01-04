@@ -32,10 +32,10 @@ def image_num():
 
 
 def rarity_gen():
-    raritys = ['common', 'rare', 'legendary_r', 'legendary_g', 'legendary_b', 'classified_blk', 'classified_wht', 'christmas', 'upsidedown', 'smoking']
+    raritys = ['common', 'rare', 'legendary_r', 'legendary_g', 'legendary_b', 'classified_blk', 'classified_wht', 'christmas', 'upsidedown']
             
     # chooses 1 rarity based on probability(p)
-    choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.00125, 0.00125])
+    choice = np.random.choice(raritys, 1, p=[0.50, 0.35, 0.04, 0.04, 0.04, 0.01, 0.01, 0.0075, 0.0025])
     #choice = random.choice(raritys)
          
     if choice == 'common':
@@ -77,11 +77,7 @@ def rarity_gen():
         rarity = 'upside down'
         PF, EW, EC, BC, OT, BG, BK = upsidedown()
         
-    elif choice == 'smoking':
-        rarity = 'smoking'
-        PF, EW, EC, BC, OT, BG, BK = smoking()
-    
-    return PF, EW, EC, BC, OT, BG, BK, rarity
+
 
 def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
@@ -119,12 +115,6 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
     # flips image if its upside down rarity
     if rarity == 'upside down':
         img_data = ImageOps.flip(img_data)
-        img_data.save(f'{PATH}/duck-{i+1}.png')
-    
-    elif rarity == 'smoking':
-        cigarette = Image.open('accessories/cigarette.png')
-        cigarette = cigarette.resize(dimensions, resample=0)
-        img_data.paste(cigarette, (0,0), cigarette)
         img_data.save(f'{PATH}/duck-{i+1}.png')
     
     elif rarity == 'christmas':

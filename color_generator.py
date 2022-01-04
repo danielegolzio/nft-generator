@@ -133,18 +133,3 @@ def upsidedown():
     BK = [255-BC[0],255-BC[1],255-BC[2]]
 
     return PF, EW, EC, BC, OT, BG, BK
-
-
-# color generator for smoking duck
-def smoking():
-    eyeWhiteColors = [255,0]
-    eyeWhite = random.choice(eyeWhiteColors)
-    PF = [0,0,0]
-    EW = [50,50,50]
-    EC = [random.randint(150, 255),random.randint(150, 255),random.randint(150, 255)]
-    BC = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    BG = [random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)]
-    OT = [255-BG[0],255-BG[1],255-BG[2]]
-    BK = [255-BC[0],255-BC[1],255-BC[2]]
-    
-    return PF, EW, EC, BC, OT, BG, BK
