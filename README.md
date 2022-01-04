@@ -1,7 +1,7 @@
 # NFT-generator
 
 ## About:
-This program will take an image of a duck and generate different versions of the same image...
+Generate different colored ducks!
 
 
 ## Dependencies:
