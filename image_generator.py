@@ -105,7 +105,7 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
                 RGB_data.append(BK)
 
     # new dimensions for image
-    dimensions = 400,400
+    dimensions = (420,420)
 
     # array handling with numpy
     RGB_data = np.array(RGB_data, dtype=np.uint8)
