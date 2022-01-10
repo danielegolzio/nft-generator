@@ -1,38 +1,3 @@
-<!-- # NFT-generator
-
-## About:
-Generate different colored ducks!
-
-
-## Dependencies:
-- Python 3.7+
-
-Python Libraries Required:
-
-- numpy
-- pillow
-
-
-## Installation:
-
-1. Install numpy and pillow using pip:
-```
-pip install numpy
-pip install pillow
-```
-
-2. Clone the repo:
-```
-git clone https://github.com/poonchoi/nft-generator
-```
-
-## Usage:
- - Run `image-generator.py`
-```
-python image-generator.py
-```
-- The generated images will then appear in the `Images` folder -->
-
 # nft-generator
 Generate any number of ducks with randomized colors and accessories.
 
@@ -62,7 +27,7 @@ python image_generator.py
 <details>
 <summary>v2.0</summary>
 Version 2 will generate ducks with randomized colors and different accessories.<br>
- 
+<img src="https://ibb.co/pfw1wqX"> 
 - cd into <code>Image-generator-v2</code><br>
  
 - Run <code>image_generator_v2.py</code><br>
