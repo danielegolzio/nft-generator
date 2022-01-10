@@ -20,7 +20,7 @@ Version 1 will generate ducks with randomized colors based on weighted rarity's.
 <img src="https://i.ibb.co/TgPC1FF/duck-77.png" width=90 height=90 alt="image of duck">
 <img src="https://i.ibb.co/9Gf9GWF/duck-62.png" width=90 height=90 alt="image of duck">
  
-- cd into <code>Image-generator-v1</code><br>
+- cd into <code>v1</code><br>
  
 - Run <code>image_generator.py</code><br>
 <pre>
@@ -39,7 +39,7 @@ Version 2 will generate ducks with randomized colors and different accessories.<
 <img src="https://i.ibb.co/b1YmZr2/duck-18.png" width=90 height=90 alt="image of duck">
  
  
-- cd into <code>Image-generator-v2</code><br>
+- cd into <code>v2</code><br>
  
 - Run <code>image_generator_v2.py</code><br>
 <pre>
