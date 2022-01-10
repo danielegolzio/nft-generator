@@ -77,7 +77,7 @@ def rarity_gen():
         rarity = 'upside down'
         PF, EW, EC, BC, OT, BG, BK = upsidedown()
         
-
+    return PF, EW, EC, BC, OT, BG, BK, choice
 
 def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
@@ -101,7 +101,7 @@ def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
                 RGB_data.append(BK)
 
     # new dimensions for image
-    dimensions = (420,420)
+    dimensions = (90,90)
 
     # array handling with numpy
     RGB_data = np.array(RGB_data, dtype=np.uint8)
@@ -155,10 +155,10 @@ def main_loop():
     # main loop
     for i in range(0, loop_counter):
         # generates rarity
-        PF, EW, EC, BC, OT, BG, BK, rarity = rarity_gen()
+        PF, EW, EC, BC, OT, BG, BK, choice = rarity_gen()
         
         # generates image
-        img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK)
+        img_generator(i, data, PATH, choice, PF, EW, EC, BC, OT, BG, BK)
 
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
