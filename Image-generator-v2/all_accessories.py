@@ -1,4 +1,5 @@
 from PIL import Image
+
 dimensions = 420,420
 
 
