@@ -17,8 +17,6 @@ eyes = [head_bandana_red]
 
 body = [gold_chain, bow_tie]
 
-funky = ['upsidedown']
-
 
 
 # generates all the accessories that the duck will have
@@ -27,7 +25,6 @@ def accessory_gen():
     mouth_item_bool = random.choice([True, False])
     eye_item_bool = random.choice([True, False])
     body_item_bool = random.choice([True, False])
-    funky_item_bool = random.choice([True, False])
     
     if hat_item_bool:
         hat_item = random.choice(hats)
@@ -48,12 +45,6 @@ def accessory_gen():
         body_item = random.choice(body)
     else:
         body_item = None
-        
-    # if funky_item_bool:
-    #     # funky_item = random.choice(funky)
-    #     funky_item = None
-    # else:
-    #     funky_item = None
         
     return hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool
 
