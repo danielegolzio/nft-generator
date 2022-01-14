@@ -79,6 +79,7 @@ def rarity_gen():
         
     return PF, EW, EC, BC, OT, BG, BK, choice
 
+
 def img_generator(i, data, PATH, rarity, PF, EW, EC, BC, OT, BG, BK):
     RGB_data = []
 
