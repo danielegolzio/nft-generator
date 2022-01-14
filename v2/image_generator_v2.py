@@ -15,7 +15,7 @@ mouth = [cigarette, joint]
 
 eyes = [head_bandana_red]
 
-body = [gold_chain, bow_tie]
+body = [gold_chain, bow_tie, safety_vest]
 
 
 
