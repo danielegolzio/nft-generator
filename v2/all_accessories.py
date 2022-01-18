@@ -22,6 +22,3 @@ joint = joint.resize(dimensions, resample=0)
 
 head_bandana_red = Image.open("accessories/head_bandana_red.png")
 head_bandana_red = head_bandana_red.resize(dimensions, resample=0)
-
-safety_vest = Image.open("accessories/safety_vest.png")
-safety_vest = safety_vest.resize(dimensions, resample=0)
