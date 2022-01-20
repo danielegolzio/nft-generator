@@ -5,6 +5,7 @@ import os
 import time
 from all_accessories import *
 from colors import *
+import typer
 
 
 
@@ -148,14 +149,14 @@ def makeNFTsDir():
 
 
 # main loop which generates the requested number of images
-def main_loop():
+def main_loop(num_of_images: int):
 
     PATH = makeNFTsDir()
     
     data = txt_img_file()
 
-    loop_counter = image_num()
-    
+    # loop_counter = image_num()
+    loop_counter = num_of_images
     # takes the starting time
     start_time = time.time()
     
@@ -176,4 +177,4 @@ def main_loop():
 
 
 if __name__ == '__main__':
-    main_loop()
+    typer.run(main_loop)
