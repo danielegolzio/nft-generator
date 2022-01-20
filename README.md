@@ -14,6 +14,7 @@ pip install -r requirements.txt
 <details>
 <summary>v1.0</summary>
 Version 1 will generate ducks with randomized colors based on weighted rarity's.<br>
+In my opinion the images that are generated don't look as good as v2 but make sure to check out both versions!<br>
 
 <img src="https://i.ibb.co/WzWzLyp/duck-74.png" width=90 height=90 alt="image of duck">
 <img src="https://i.ibb.co/mtmD7Kx/duck-70.png" width=90 height=90 alt="image of duck">
