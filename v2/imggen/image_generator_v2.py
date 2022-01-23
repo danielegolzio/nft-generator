@@ -3,8 +3,9 @@ import random
 from PIL import Image, ImageOps
 import os
 import time
-from all_accessories import *
-from colors import *
+from imggen.all_accessories import *
+from imggen.colors import *
+from imggen.image_data import *
 import typer
 
 
@@ -107,29 +108,12 @@ def img_layering(i, img_data, PATH, hat_item, mouth_item, eye_item, body_item, h
 # turns the txt file contianing the image data into a list
 def txt_img_file():
     # turns image_data file into a list
-    file = open('image-data/image_data.txt', 'r')
+    file = open('imggen/image_data/image_data.txt', 'r')
     # new array that contains all RGB pixel values
     data = [line.strip('\n')[:-1].split(',') if line[-2] == ',' else line.strip('\n').split(',') for line in file.readlines()] # made by Royce Chan
     file.close()
 
     return data
-
-
-
-# gets the user to input how many images they want generated
-def image_num():
-    # asks user how many images they want to make
-    while True:
-        try:
-            loop_counter = int(input('How many images would you like to generate?: '))
-            if loop_counter < 1: # User entered value less than 1
-                print('Number of images must be at least 1.')
-            else: # Value is an integer and greater than or equal to 1
-                break
-        except ValueError:
-            print('Wrong input...')
-
-    return loop_counter
 
 
 
@@ -155,8 +139,8 @@ def main_loop(num_of_images: int):
     
     data = txt_img_file()
 
-    # loop_counter = image_num()
     loop_counter = num_of_images
+
     # takes the starting time
     start_time = time.time()
     
