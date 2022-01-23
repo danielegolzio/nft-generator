@@ -3,22 +3,17 @@ import random
 from PIL import Image, ImageOps
 import os
 import time
+import typer
 from imggen.all_accessories import *
 from imggen.colors import *
 from imggen.image_data import *
-import typer
-
 
 
 # lists containing all accessories
 hats = [christmas, back_cap]
-
 mouth = [cigarette, joint]
-
 eyes = [head_bandana_red]
-
 body = [gold_chain, bow_tie]
-
 
 
 # generates all the accessories that the duck will have
@@ -49,7 +44,6 @@ def accessory_gen():
         body_item = None
         
     return hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool
-
 
 
 # generates base image based on generated colors
@@ -87,7 +81,6 @@ def img_generator(data, PF, EW, EC, BC, OT, BG, BK):
     return img_data
 
 
-
 # layers all of the generated accessories onto the duck
 def img_layering(i, img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool):
     if hat_item_bool:
@@ -104,7 +97,6 @@ def img_layering(i, img_data, PATH, hat_item, mouth_item, eye_item, body_item, h
         img_data.save(f'{PATH}/duck-{i+1}.png')
 
 
-
 # turns the txt file contianing the image data into a list
 def txt_img_file():
     # turns image_data file into a list
@@ -114,7 +106,6 @@ def txt_img_file():
     file.close()
 
     return data
-
 
 
 # Creates directory to store generated images
@@ -131,7 +122,6 @@ def makeNFTsDir():
     return path
 
 
-
 # main loop which generates the requested number of images
 def main_loop(num_of_images: int):
 
@@ -144,9 +134,13 @@ def main_loop(num_of_images: int):
     # takes the starting time
     start_time = time.time()
     
+    bar_counter = 0
+
     # main loop
     for i in range(0, loop_counter):
-        # generates rarity
+
+        bar_counter += 1
+
         PF, EW, EC, BC, OT, BG, BK = color_gen()
 
         img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
@@ -155,9 +149,12 @@ def main_loop(num_of_images: int):
         
         img_layering(i ,img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool)
         
-    # prints elapsed time to generate images rounded to 2 decimal places
-    print(f'Process finished --- {round(time.time()-start_time, 2)}s seconds ---')
+        # progress bar
+        os.system('cls' if os.name == 'nt' else 'clear')
+        typer.secho("|-"+"█"*(round(int((bar_counter/loop_counter)*30), 1)) + f"-| {int((bar_counter/loop_counter)*100)}%")
 
+    # prints elapsed time to generate images rounded to 2 decimal places
+    print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
 
 
 if __name__ == '__main__':
