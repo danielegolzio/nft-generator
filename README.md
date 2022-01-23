@@ -25,7 +25,7 @@ In my opinion the images that are generated don't look as good as v2 but make su
  
 - Run <code>image_generator.py</code><br>
 <pre>
-python image_generator.py
+python main.py [NUM_OF_IMAGES]
 </pre>
 - The generated images will appear in the  <code>Images</code> folder<br>
 </details>
