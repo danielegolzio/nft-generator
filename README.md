@@ -86,7 +86,7 @@ The program will function similarly to v2.0 but is much quicker at generating th
 ```
 pip install opencv-python
 ```
-- CD into `Community v3/v3`
+- CD into `'Community v3'/v3`
 
 - To generate an image, run
 ```
