@@ -1,5 +1,5 @@
-from imggen.image_generator_v2 import main_loop
 import typer
+from imggen.__main__ import main_loop
 
 if __name__ == "__main__":
     typer.run(main_loop)
