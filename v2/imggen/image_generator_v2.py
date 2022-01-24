@@ -134,6 +134,7 @@ def main_loop(num_of_images: int):
     # takes the starting time
     start_time = time.time()
 
+    # things needed for progress bar to work
     bar_counter = 0
     bar_empty = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
     bar_block = ""
@@ -153,7 +154,7 @@ def main_loop(num_of_images: int):
         bar_counter += 1
         bar_block = ("█"*(round(int((bar_counter/loop_counter)*30), 1)))
         os.system('cls' if os.name == 'nt' else 'clear')
-        typer.secho("|-" + bar_block + (bar_empty[len(bar_block)::]) + f"-| {bar_counter}/{loop_counter} | [{int((bar_counter/loop_counter)*100)}%]")
+        typer.secho("|-" + bar_block + (bar_empty[len(bar_block)::]) + f"-| [{bar_counter}/{loop_counter}] [{int((bar_counter/loop_counter)*100)}%]")
 
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
