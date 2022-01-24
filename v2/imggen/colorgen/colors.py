@@ -1,6 +1,9 @@
 import random
 
 def color_gen():
+    """
+    Generates the color of the body and background
+    """
     # this makes the colors more varied
     prob = random.choice([True, False])
     if prob:

@@ -12,7 +12,9 @@ from imggen.dirGen.makeIMGsDir import *
 
 # main loop which generates the requested number of images
 def main_loop(num_of_images: int):
-
+    """
+    main loop which generates the requested number of images
+    """
     PATH = makeIMGsDir()
 
     loop_counter = num_of_images

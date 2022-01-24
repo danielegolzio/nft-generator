@@ -1,7 +1,9 @@
-from ntpath import join
 from PIL import Image
 from imggen.accessorygen.accessories import *
 
+"""
+A file containing all of the accessories
+"""
 dimensions = 420,420
 
 cigarette = Image.open("imggen/accessorygen/accessories/cigarette.png")

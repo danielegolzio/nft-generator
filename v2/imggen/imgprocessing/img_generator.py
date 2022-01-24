@@ -3,7 +3,9 @@ import numpy as np
 
 # generates base image based on generated colors
 def img_generator(BC, BG, im):
-
+    """
+    Generates the standard duck image with no accessories
+    """
     im = Image.open('imggen/imgprocessing/template.png')
     im = im.convert('RGB')
 

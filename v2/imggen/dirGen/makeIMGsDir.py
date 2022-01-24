@@ -1,7 +1,9 @@
 import os
 
-# Creates directory to store generated images
 def makeIMGsDir():
+    """
+    Creates the directory to store the images
+    """
     cwd = os.getcwd()
     path = os.path.join(cwd, 'Images')
 
