@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 # generates base image based on generated colors
-def img_generator(BC, BG):
+def img_generator(BC, BG, im):
 
     im = Image.open('imggen/imgprocessing/template.png')
     im = im.convert('RGB')

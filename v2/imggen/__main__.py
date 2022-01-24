@@ -6,8 +6,8 @@ from imggen.accessorygen.all_accessories import *
 from imggen.colorgen.colors import *
 from imggen.imgprocessing.img_generator import *
 from imggen.imgprocessing.img_layering import *
+from imggen.imgprocessing.opentemplate import *
 from imggen.dirGen.makeIMGsDir import *
-from imggen.txtgen.txt_img_file import *
 
 
 # main loop which generates the requested number of images
@@ -17,20 +17,22 @@ def main_loop(num_of_images: int):
 
     loop_counter = num_of_images
 
-    # takes the starting time
-    start_time = time.time()
+    data = openTemplate()
 
     # things needed for progress bar to work
     bar_counter = 0
     bar_empty = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
     bar_block = ""
 
+    # takes the starting time
+    start_time = time.time()
+
     # main loop
     for i in range(0, loop_counter):
 
         BC, BG = color_gen()
 
-        img_data = img_generator(BC, BG)
+        img_data = img_generator(BC, BG, data)
 
         hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
 
