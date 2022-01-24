@@ -126,32 +126,34 @@ def makeNFTsDir():
 def main_loop(num_of_images: int):
 
     PATH = makeNFTsDir()
-    
+
     data = txt_img_file()
 
     loop_counter = num_of_images
 
     # takes the starting time
     start_time = time.time()
-    
+
     bar_counter = 0
+    bar_empty = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
+    bar_block = ""
 
     # main loop
     for i in range(0, loop_counter):
-
-        bar_counter += 1
 
         PF, EW, EC, BC, OT, BG, BK = color_gen()
 
         img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
 
         hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
-        
+
         img_layering(i ,img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool)
-        
+
         # progress bar
+        bar_counter += 1
+        bar_block = ("█"*(round(int((bar_counter/loop_counter)*30), 1)))
         os.system('cls' if os.name == 'nt' else 'clear')
-        typer.secho("|-"+"█"*(round(int((bar_counter/loop_counter)*30), 1)) + f"-| {int((bar_counter/loop_counter)*100)}%")
+        typer.secho("|-" + bar_block + (bar_empty[len(bar_block)::]) + f"-| {bar_counter}/{loop_counter} | [{int((bar_counter/loop_counter)*100)}%]")
 
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
