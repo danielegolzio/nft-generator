@@ -78,5 +78,18 @@ Version 2 will generate ducks with randomized colors and different accessories.
 ```
 python image_generator [NUM_OF_IMAGES]
 ```
+### Commuity v3.0
+This program was made by <a href="https://github.com/besir660">@besir660</a>.<br>
+The program will function similarly to v2.0 but is much quicker at generating the images.
 
+- install opencv
+```
+pip install opencv-python
+```
+- CD into `Community v3/v3`
+
+- To generate an image, run
+```
+python image_generator_v3.py
+```
 
