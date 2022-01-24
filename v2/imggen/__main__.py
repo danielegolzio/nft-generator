@@ -49,7 +49,3 @@ def main_loop(num_of_images: int):
 
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
-
-
-if __name__ == '__main__':
-    typer.run(main_loop)
