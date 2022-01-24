@@ -15,8 +15,6 @@ def main_loop(num_of_images: int):
 
     PATH = makeIMGsDir()
 
-    data = txt_img_file()
-
     loop_counter = num_of_images
 
     # takes the starting time
@@ -30,9 +28,9 @@ def main_loop(num_of_images: int):
     # main loop
     for i in range(0, loop_counter):
 
-        PF, EW, EC, BC, OT, BG, BK = color_gen()
+        BC, BG = color_gen()
 
-        img_data = img_generator(data, PF, EW, EC, BC, OT, BG, BK)
+        img_data = img_generator(BC, BG)
 
         hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
 
