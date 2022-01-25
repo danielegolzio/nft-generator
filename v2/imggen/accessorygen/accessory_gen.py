@@ -6,7 +6,7 @@ def accessory_gen():
     """
     Generates all the accessories that will be on the duck
     """
-    accessory_bool = np.random.choice([True, False], 1, p=[0.8, 0.2])
+    accessory_bool = np.random.choice([True, False], 1, p=[0.9, 0.1])
     
     if accessory_bool:
         hat_item_bool = random.choice([True, False])
