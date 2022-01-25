@@ -1,11 +1,12 @@
 import random
+import numpy as np
 
 def color_gen():
     """
     Generates the color of the body and background
     """
     # this makes the colors more varied
-    prob = random.choice([True, False])
+    prob = np.random.choice([True, False])
     if prob:
         BC = [random.randint(30, 210),random.randint(30, 210),random.randint(30, 210)]
         BG = [255-BC[0],255-BC[1],255-BC[2]]

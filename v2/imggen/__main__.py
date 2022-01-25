@@ -19,7 +19,7 @@ def main_loop(num_of_images: int):
 
     loop_counter = num_of_images
 
-    data = openTemplate()
+    im = openTemplate()
 
     # things needed for progress bar to work
     bar_counter = 0
@@ -34,7 +34,7 @@ def main_loop(num_of_images: int):
 
         BC, BG = color_gen()
 
-        img_data = img_generator(BC, BG, data)
+        img_data = img_generator(BC, BG, im)
 
         hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
 

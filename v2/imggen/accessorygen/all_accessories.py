@@ -27,12 +27,20 @@ joint = joint.resize(dimensions, resample=0)
 head_bandana_red = Image.open("imggen/accessorygen//accessories/head_bandana_red.png")
 head_bandana_red = head_bandana_red.resize(dimensions, resample=0)
 
+sunglasses = Image.open("imggen/accessorygen//accessories/sunglasses.png")
+sunglasses = head_bandana_red.resize(dimensions, resample=0)
+
+heart = Image.open("imggen/accessorygen//accessories/sunglasses.png")
+heart = head_bandana_red.resize(dimensions, resample=0)
+
 hats = [
     christmas,
-    back_cap
+    back_cap,
+    heart
 ]
 eyes = [
-    head_bandana_red
+    head_bandana_red,
+    sunglasses
 ]
 mouth = [
     cigarette,
