@@ -2,7 +2,9 @@ from PIL import Image
 import numpy as np
 
 # generates base image based on generated colors
-def img_generator(BC, BG, im, data):
+def img_generator(BC, BG, data):
+    list(BG)
+    list(BC)
     """
     Generates the standard duck image with no accessories
     """
@@ -17,10 +19,6 @@ def img_generator(BC, BG, im, data):
 
         else:
             new_img.append(i)
-
-    # new_img = [new_img.append(BG) if i==(255,0,0) else new_img.append(i) new_img.append(BC) if i==(0,255,0) else new_img.append(i) for i in data]
-    # new_img = [new_img.append(BG) if i==(255,0,0) else new_img.append(i) for i in data]
-    # new_img = [new_img.append(BC) if i==(0,255,0) else new_img.append(i) for i in data]
 
     # new dimensions for image
     dimensions = (420,420)

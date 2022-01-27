@@ -36,7 +36,7 @@ def main_loop(num_of_images: int):
 
         BC, BG = color_gen()
 
-        img_data = img_generator(BC, BG, im, data)
+        img_data = img_generator(BC, BG, data)
 
         hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
 
