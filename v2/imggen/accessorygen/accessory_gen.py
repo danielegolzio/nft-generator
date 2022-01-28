@@ -9,10 +9,10 @@ def accessory_gen():
     accessory_bool = np.random.choice([True, False], 1, p=[0.9, 0.1])
     
     if accessory_bool:
-        hat_item_bool = random.choice([True, False])
-        mouth_item_bool = random.choice([True, False])
-        eye_item_bool = random.choice([True, False])
-        body_item_bool = random.choice([True, False])
+        hat_item_bool = np.random.choice([True, False])
+        mouth_item_bool = np.random.choice([True, False])
+        eye_item_bool = np.random.choice([True, False])
+        body_item_bool = np.random.choice([True, False])
 
         if hat_item_bool:
             hat_item = random.choice(hats)

@@ -1,4 +1,3 @@
-import os
 import time
 import typer
 from imggen.accessorygen.accessory_gen import *

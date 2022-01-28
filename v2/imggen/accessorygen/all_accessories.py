@@ -27,6 +27,9 @@ joint = joint.resize(dimensions, resample=0)
 head_bandana_red = Image.open("imggen/accessorygen/accessories/head_bandana_red.png")
 head_bandana_red = head_bandana_red.resize(dimensions, resample=0)
 
+head_bandana_blue = Image.open("imggen/accessorygen/accessories/head_bandana_blue.png")
+head_bandana_blue = head_bandana_blue.resize(dimensions, resample=0)
+
 sunglasses = Image.open("imggen/accessorygen/accessories/sunglasses.png")
 sunglasses = sunglasses.resize(dimensions, resample=0)
 
@@ -48,19 +51,35 @@ glasses = glasses.resize(dimensions, resample=0)
 robo_eye = Image.open("imggen/accessorygen/accessories/robo_eye.png")
 robo_eye = robo_eye.resize(dimensions, resample=0)
 
+suit = Image.open("imggen/accessorygen/accessories/suit.png")
+suit = suit.resize(dimensions, resample=0)
+
+gucci_hoodie = Image.open("imggen/accessorygen/accessories/gucci_hoodie.png")
+gucci_hoodie = gucci_hoodie.resize(dimensions, resample=0)
+
+flame_tail = Image.open("imggen/accessorygen/accessories/flame_tail.png")
+flame_tail = flame_tail.resize(dimensions, resample=0)
+
+straw_hat = Image.open("imggen/accessorygen/accessories/straw_hat.png")
+straw_hat = straw_hat.resize(dimensions, resample=0)
+
 hats = [
     christmas,
     back_cap,
-    heart
+    heart,
+    flame_tail,
+    straw_hat
 ]
 eyes = [
     head_bandana_red,
+    head_bandana_blue,
     sunglasses,
     visor_red,
     visor_blue,
     astronaut,
     glasses,
-    robo_eye
+    robo_eye,
+    flame_tail
 ]
 mouth = [
     cigarette,
@@ -68,5 +87,7 @@ mouth = [
 ]
 body = [
     gold_chain,
-    bow_tie
+    bow_tie,
+    suit,
+    gucci_hoodie
 ]
