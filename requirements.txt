@@ -3,3 +3,4 @@ Pillow==9.0.0
 typer==0.4.0
 colorama==0.4.4
 shellingham==1.4.0
+opencv-python==4.5.5.62
