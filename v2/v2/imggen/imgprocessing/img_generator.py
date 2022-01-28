@@ -1,24 +1,15 @@
 from PIL import Image
 import numpy as np
-import time
-# generates base image based on generated colors
-def img_generator(BC, BG, data):
+import cv2
+
+def img_generator(BC, BG, im):
     """
     Generates the standard duck image with no accessories
     """
-    new_img = []
+    new_img = im.copy()
+    new_img[np.where((new_img==(255,0,0)).all(axis=2))] = BG
+    new_img[np.where((new_img==(0,255,0)).all(axis=2))] = BC
 
-    for i in data:
-        if i == (255,0,0):
-            new_img.append(BG)
-
-        elif i == (0,255,0):
-            new_img.append(BC)
-
-        else:
-            new_img.append(i)
-
-    # new dimensions for image
     dimensions = (420,420)
 
     # array handling with numpy
