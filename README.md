@@ -83,9 +83,9 @@ Arguments:
   NUM_OF_IMAGES [required]   Number of images you want to generate
  
 Options:
-  --bar    Show progress bar when generating images
-  --show   Open image folder on completion
-  --help   Show all options
+  -b, --bar     Show progress bar when generating images
+  -s, --show    Open image folder on completion
+  --help        Show all options
 ```
 ### Commuity v3.0
 This program was made by <a href="https://github.com/besir660">@besir660</a>.<br>
