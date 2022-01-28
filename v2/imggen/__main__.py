@@ -51,7 +51,6 @@ def main_loop(
             if ((bar_counter/loop_counter)*30)%1 == 0:
                 progressbar(bar_counter, loop_counter)
 
-
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
 
