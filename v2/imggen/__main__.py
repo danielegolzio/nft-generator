@@ -8,10 +8,14 @@ from imggen.imgprocessing.img_generator import *
 from imggen.imgprocessing.img_layering import *
 from imggen.imgprocessing.opentemplate import *
 from imggen.dirGen.makeIMGsDir import *
+from imggen.args.progressbar.progressbar import *
+from imggen.args.openImg.openImg import *
 
-
-# main loop which generates the requested number of images
-def main_loop(num_of_images: int):
+def main_loop(
+    num_of_images: int,
+    bar: bool=typer.Option(False, help="Show progress bar when generating images"),
+    show: bool=typer.Option(False, help="Open image folder on completion")
+):
     """
     main loop which generates the requested number of images
     """
@@ -23,8 +27,6 @@ def main_loop(num_of_images: int):
 
     # things needed for progress bar to work
     bar_counter = 0
-    bar_empty = "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
-    bar_block = ""
 
     # takes the starting time
     start_time = time.time()
@@ -44,10 +46,14 @@ def main_loop(num_of_images: int):
         img_data.save(f'{PATH}/duck-{i+1}.png')
 
         # progress bar
-        # bar_counter += 1
-        # bar_block = ("█"*(round(int((bar_counter/loop_counter)*30), 1)))
-        # os.system('cls' if os.name == 'nt' else 'clear')
-        # typer.secho("|-" + bar_block + (bar_empty[len(bar_block)::]) + f"-| [{bar_counter}/{loop_counter}] [{int((bar_counter/loop_counter)*100)}%]")
+        if bar:
+            bar_counter += 1
+            if ((bar_counter/loop_counter)*30)%1 == 0:
+                progressbar(bar_counter, loop_counter)
+
 
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
+
+    if show:
+        openImg(PATH)
