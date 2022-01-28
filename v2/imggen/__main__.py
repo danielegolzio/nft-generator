@@ -13,8 +13,8 @@ from imggen.args.openImg.openImg import *
 
 def main_loop(
     num_of_images: int,
-    bar: bool=typer.Option(False, help="Show progress bar when generating images"),
-    show: bool=typer.Option(False, help="Open image folder on completion")
+    bar: bool=typer.Option(False, help="Show progress bar when generating images", show_default=False),
+    showimg: bool=typer.Option(False, help="Open image folder on completion", show_default=False)
 ):
     """
     main loop which generates the requested number of images
@@ -54,5 +54,5 @@ def main_loop(
     # prints elapsed time to generate images rounded to 2 decimal places
     print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
 
-    if show:
+    if showimg:
         openImg(PATH)
