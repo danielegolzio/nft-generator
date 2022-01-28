@@ -89,7 +89,7 @@ Options:
 ```
 ### Commuity v3.0
 This program was made by <a href="https://github.com/besir660">@besir660</a>.<br>
-The program will function similarly to v2.0 but is much quicker at generating the images.
+The program will function similarly to v2.0 but is slightly quicker at generating the images.
 
 - install opencv
 ```
