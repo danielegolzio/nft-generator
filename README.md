@@ -95,10 +95,6 @@ Options:
 This program was made by <a href="https://github.com/besir660">@besir660</a>.<br>
 The program will function similarly to v2.0 but is slightly quicker at generating the images.
 
-- install opencv
-```
-pip install opencv-python
-```
 - CD into `'Community v3'/v3`
 
 - To generate an image, run
