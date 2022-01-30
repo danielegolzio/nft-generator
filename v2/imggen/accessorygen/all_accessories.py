@@ -66,12 +66,19 @@ straw_hat = straw_hat.resize(dimensions, resample=0)
 bikini = Image.open("imggen/accessorygen/accessories/bikini.png")
 bikini = bikini.resize(dimensions, resample=0)
 
+body_armour = Image.open("imggen/accessorygen/accessories/body_armour.png")
+body_armour = body_armour.resize(dimensions, resample=0)
+
+helmet = Image.open("imggen/accessorygen/accessories/helmet.png")
+helmet = helmet.resize(dimensions, resample=0)
+
 hats = [
     christmas,
     back_cap,
     heart,
     flame_tail,
-    straw_hat
+    straw_hat,
+    helmet
 ]
 eyes = [
     head_bandana_red,
@@ -93,5 +100,6 @@ body = [
     bow_tie,
     suit,
     gucci_hoodie,
-    bikini
+    bikini,
+    body_armour
 ]
