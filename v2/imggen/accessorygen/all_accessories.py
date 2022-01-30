@@ -1,10 +1,10 @@
 from PIL import Image
 from imggen.accessorygen.accessories import *
+from imggen.dimensions.dimensions import dimensions
 
 """
 A file containing all of the accessories
 """
-dimensions = 420,420
 
 cigarette = Image.open("imggen/accessorygen/accessories/cigarette.png")
 cigarette = cigarette.resize(dimensions, resample=0)
@@ -63,6 +63,9 @@ flame_tail = flame_tail.resize(dimensions, resample=0)
 straw_hat = Image.open("imggen/accessorygen/accessories/straw_hat.png")
 straw_hat = straw_hat.resize(dimensions, resample=0)
 
+bikini = Image.open("imggen/accessorygen/accessories/bikini.png")
+bikini = bikini.resize(dimensions, resample=0)
+
 hats = [
     christmas,
     back_cap,
@@ -89,5 +92,6 @@ body = [
     gold_chain,
     bow_tie,
     suit,
-    gucci_hoodie
+    gucci_hoodie,
+    bikini
 ]

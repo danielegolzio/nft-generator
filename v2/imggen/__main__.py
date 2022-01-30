@@ -9,6 +9,7 @@ from imggen.imgprocessing.opentemplate import *
 from imggen.dirGen.makeIMGsDir import *
 from imggen.args.progressbar.progressbar import *
 from imggen.args.openImg.openImg import *
+from imggen.dimensions.dimensions import dimensions
 
 def main_loop(
     num_of_images: int,

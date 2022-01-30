@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
 import cv2
+from imggen.dimensions.dimensions import dimensions
 
 def img_generator(BC, BG, im):
     """
@@ -9,8 +10,6 @@ def img_generator(BC, BG, im):
     new_img = im.copy()
     new_img[np.where((new_img==(255,0,0)).all(axis=2))] = BG
     new_img[np.where((new_img==(0,255,0)).all(axis=2))] = BC
-
-    dimensions = (420,420)
 
     # array handling with numpy
     new_img = np.array(new_img, dtype=np.uint8)
