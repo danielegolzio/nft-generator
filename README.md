@@ -64,7 +64,7 @@ Version 1 will generate ducks with randomized colors based on weighted rarity's.
 
 - To generate an image, run
 ```
-python image_generator
+python image_generator.py
 ```
 
 ### v2.0
@@ -80,7 +80,7 @@ Version 2 will generate ducks with randomized colors and different accessories.
 
 - To generate an image, run
 ```
-python image_generator [NUM_OF_IMAGES] [OPTION]...
+python main.py [NUM_OF_IMAGES] [OPTION]...
 ```
 ```
 Arguments:
