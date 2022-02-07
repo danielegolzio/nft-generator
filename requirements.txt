@@ -1,6 +1,4 @@
-numpy==1.22.0
-Pillow==9.0.0
+numpy==1.20.2
+opencv_python==4.5.5.62
+Pillow==9.0.1
 typer==0.4.0
-colorama==0.4.4
-shellingham==1.4.0
-opencv-python==4.5.5.62
