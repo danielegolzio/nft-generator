@@ -2,12 +2,13 @@ import random
 import numpy as np
 from imggen.accessorygen.all_accessories import hats, eyes, mouth, body
 
+
 def accessory_gen():
     """
     Generates all the accessories that will be on the duck
     """
     accessory_bool = np.random.choice([True, False], 1, p=[0.9, 0.1])
-    
+
     if accessory_bool:
         hat_item_bool = np.random.choice([True, False])
         mouth_item_bool = np.random.choice([True, False])
@@ -43,4 +44,13 @@ def accessory_gen():
         eye_item_bool = None
         body_item_bool = None
 
-    return hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool
+    return (
+        hat_item,
+        mouth_item,
+        eye_item,
+        body_item,
+        hat_item_bool,
+        mouth_item_bool,
+        body_item_bool,
+        eye_item_bool,
+    )
