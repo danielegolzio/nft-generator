@@ -72,14 +72,7 @@ body_armour = body_armour.resize(dimensions, resample=0)
 helmet = Image.open("imggen/accessorygen/accessories/helmet.png")
 helmet = helmet.resize(dimensions, resample=0)
 
-hats = [
-    christmas,
-    back_cap,
-    heart,
-    flame_tail,
-    straw_hat,
-    helmet
-]
+hats = [christmas, back_cap, heart, flame_tail, straw_hat, helmet]
 eyes = [
     head_bandana_red,
     head_bandana_blue,
@@ -89,17 +82,7 @@ eyes = [
     astronaut,
     glasses,
     robo_eye,
-    flame_tail
+    flame_tail,
 ]
-mouth = [
-    cigarette,
-    joint
-]
-body = [
-    gold_chain,
-    bow_tie,
-    suit,
-    gucci_hoodie,
-    bikini,
-    body_armour
-]
+mouth = [cigarette, joint]
+body = [gold_chain, bow_tie, suit, gucci_hoodie, bikini, body_armour]
