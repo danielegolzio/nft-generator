@@ -10,10 +10,23 @@ from imggen.dirGen.makeIMGsDir import *
 from imggen.args.progressbar.progressbar import *
 from imggen.args.openImg.openImg import *
 
+
 def main_loop(
     num_of_images: int,
-    bar: bool=typer.Option(False, "--bar", "-b", help="Show progress bar when generating images", show_default=False),
-    show: bool=typer.Option(False, "--show", "-s", help="Open image folder on completion", show_default=False)
+    bar: bool = typer.Option(
+        False,
+        "--bar",
+        "-b",
+        help="Show progress bar when generating images",
+        show_default=False,
+    ),
+    show: bool = typer.Option(
+        False,
+        "--show",
+        "-s",
+        help="Open image folder on completion",
+        show_default=False,
+    ),
 ):
     """
     main loop which generates the requested number of images
@@ -37,21 +50,42 @@ def main_loop(
 
         img_data = img_generator(BC, BG, im)
 
-        hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool = accessory_gen()
+        (
+            hat_item,
+            mouth_item,
+            eye_item,
+            body_item,
+            hat_item_bool,
+            mouth_item_bool,
+            body_item_bool,
+            eye_item_bool,
+        ) = accessory_gen()
 
         if hat_item_bool or mouth_item_bool or body_item_bool or eye_item_bool:
-            img_layering(i ,img_data, PATH, hat_item, mouth_item, eye_item, body_item, hat_item_bool, mouth_item_bool, body_item_bool, eye_item_bool)
+            img_layering(
+                i,
+                img_data,
+                PATH,
+                hat_item,
+                mouth_item,
+                eye_item,
+                body_item,
+                hat_item_bool,
+                mouth_item_bool,
+                body_item_bool,
+                eye_item_bool,
+            )
 
-        img_data.save(f'{PATH}/duck-{i+1}.png')
+        img_data.save(f"{PATH}/duck-{i+1}.png")
 
         # progress bar
         if bar:
             bar_counter += 1
-            if ((bar_counter/loop_counter)*30)%1 == 0:
+            if ((bar_counter / loop_counter) * 30) % 1 == 0:
                 progressbar(bar_counter, loop_counter)
 
     # prints elapsed time to generate images rounded to 2 decimal places
-    print(f'\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n')
+    print(f"\nProcess finished -- {round(time.time()-start_time, 2)}s seconds --\n")
 
     if show:
         openImg(PATH)
