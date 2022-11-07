@@ -1,1 +1,1 @@
-dimensions = (420, 420)
+dimensions = (150,150)
